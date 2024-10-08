@@ -14,7 +14,7 @@ const Footer = () => {
             </div>
             <div className="footer-section-2">
                 <h3 className="footer-heading">Navigation</h3>
-                <table>
+                <table className="table">
                     <tr>
                         <td>Home</td>
                     </tr>
@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
             <div className="footer-section-3">
                 <h3 className="footer-heading">Services</h3>
-                <table>
+                <table className="table">
                     <tr>
                         <td>Carpet Cleaning</td>
                     </tr>
@@ -44,10 +44,10 @@ const Footer = () => {
                 </table>
             </div>
             <div className="footer-section-4">
-                <h3 className="footer-heading">☎️Contact Us</h3>
-                <p className="footer-text-script">📳Our Support and Sales team is available <br/> 24/7 to answer your queries</p>
-                <p className="footer-text-address">📍123 Main St, Suite 500, New York, NY 10001</p>
-                <p className="footer-text-phone">📞+1 (333) 000-0000</p>
+                <h3 className="footer-heading">☎️Contact Us</h3><br/>
+                <p className="footer-text">📳Our Support and Sales team is available <br/> 24/7 to answer your queries</p>
+                <p className="footer-text">📍123 Main St, Suite 500, New York, NY 10001</p>
+                <p className="footer-text">📞+1 (333) 000-0000</p>
             </div>
             </div>
             <div className="footer-bottom">

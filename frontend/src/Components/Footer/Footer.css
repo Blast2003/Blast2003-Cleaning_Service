@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
     margin-left: 30px;
     width: 1440px;
-    height: 300px;
+    height: 310px;
 }
 .footer-container{
     display: flex;
@@ -16,13 +16,17 @@
     justify-content: center;
 }
 .footer-text{
-    word-wrap: break-word
+    word-wrap: break-word;
+    color: #fff;
 }
 .footer-section-2{
     margin-top: 5px
 }
 .footer-section-3{
     margin-top: 5px;
+}
+.footer-section-4{
+    color: #fff;
 }
 .footer-text-script{
     padding: 2px;
@@ -33,9 +37,13 @@
     padding: 0;
     margin-top: 0;
 }
+.table{
+    color: #fff;
+}
 .footer-bottom{
     border-top: 2px solid #444;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding-top: 15px;
     display: flex;
     justify-content: space-between;
