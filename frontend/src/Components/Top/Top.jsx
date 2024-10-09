@@ -5,11 +5,10 @@ const Top = () => {
     return(
         <div className="top">
             <div className="leftSection">
-                <h5>BERESIN - CLEANING SERVICES</h5>
-                <h2>Cleaning Services</h2>
-                <h2>For All Your Needs</h2>
-                <p className="description">Faucibus commodo a aenean et sit quisque ipsum. Consequat
-                    eu id ut dolor felis quis. Sagittis a sapien pulvinar etiam
+                <h5>✨BERESIN - CLEANING SERVICES</h5>
+                <h2>Cleaning Services<br/>For All Your Needs</h2>
+                <p className="description">Faucibus commodo a aenean et sit quisque ipsum. <br/> Consequat
+                    eu id ut dolor felis quis. Sagittis a sapien <br/> pulvinar etiam 
                     senetus adipiscing tempor diam tellus.
                 </p>
                 <div className="button">

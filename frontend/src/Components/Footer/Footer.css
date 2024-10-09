@@ -4,9 +4,9 @@
     color: #fff;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
-    margin-left: 40px;
+    margin-left: 50px;
     width: 1440px;
-    height: 310px;
+    height: 240px;
 }
 .footer-container{
     display: flex;
@@ -42,9 +42,6 @@
 }
 .footer-bottom{
     border-top: 2px solid #444;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 15px;
     display: flex;
     justify-content: space-between;
     margin-left: 20px;

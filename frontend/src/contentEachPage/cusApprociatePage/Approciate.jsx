@@ -6,7 +6,7 @@ function Approciate() {
     return (
         <div className="approciate-container">
             <div className="approciate-heading-content">
-                <p className="star-1">⭐ Testimonial</p>
+                <p className="star-1">⭐Testimonial</p>
                 <h2>Hear What Our Clients Say </h2>
                 <p>Faucibus commodo a aenean et sit quisque ipsum. <br/>
                 Consequat eu id ut dolor felis quis. Sagittis a sepien pulvinar etiam</p>
