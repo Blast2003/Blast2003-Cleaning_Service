@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #FFF;
-    margin-left: 30px;
+    background: #fff;
+    margin-left: 40px;
     margin-right: 30px;
     padding: 15px 7%;
 }
@@ -22,7 +22,7 @@ ul{
     flex: 1;
     list-style: none;
     text-align: center;
-    margin-left: 300px;
+    margin-left: 250px;
 }
 ul li{
     display: inline-block;
@@ -30,6 +30,9 @@ ul li{
     font-size: 14px;
     cursor: pointer;
     text-transform: uppercase;
+}
+ul li a{
+    text-decoration: none;
 }
 #logout{
     background-color: grey;
