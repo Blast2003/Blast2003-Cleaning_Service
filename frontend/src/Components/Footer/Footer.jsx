@@ -1,6 +1,8 @@
 import React from "react";
 import './Footer.css';
-import socialIcon from '../../assets/socialIcon.png'
+import socialIcon from '../../assets/socialIcon.png';
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <div className="footer">
@@ -14,15 +16,15 @@ const Footer = () => {
                 </div>
                 <div className="footer-section-2">
                     <h3 className="footer-heading">Navigation</h3>
-                    <table className="table">
+                    <table className="footer-table">
                         <tr>
-                            <td>Home</td>
+                            <td style={{color: 'white'}}><a href="/home">Home</a></td>
                         </tr>
                         <tr>
-                            About Us
+                            <td style={{color: 'white'}}><a href="/aboutUs">About Us</a></td>
                         </tr>
                         <tr>
-                            <td>Our Services</td>
+                            <td style={{color: 'white'}}><a href="/service">Our Services</a></td>
                         </tr>
                     </table>
                 </div>
@@ -51,7 +53,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>COPYRIGHT © 2023 BERESIN | DESIGN BY TOKOTEMA</p>
+                <p>COPYRIGHT © 2023 BERESIN | DESIGN BY PHI + NGUYEN + QUAN</p>
                 <p>TERM OF USE | PRIVACY POLICY</p>
             </div>
         </div>

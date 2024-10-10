@@ -12,6 +12,7 @@ import AboutPage from "./pages/AboutPage";
 import OurTeamPage from "./pages/OurTeamPage";
 import ServicePage from "./pages/ServicePage";
 import ApprociatePage from "./pages/ApprociatePage";
+import SignUp from "./Components/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     path: "customerApprociate",
     element: <ApprociatePage/>,
   },
+  {
+    path: "signup",
+    element: <SignUp/>
+  }
 ]);
 
 

@@ -1,5 +1,6 @@
 import React from "react";
 import './Top.css'
+import { Link } from "react-router-dom";
 
 const Top = () => {
     return(
@@ -11,8 +12,8 @@ const Top = () => {
                     eu id ut dolor felis quis. Sagittis a sapien <br/> pulvinar etiam 
                     senetus adipiscing tempor diam tellus.
                 </p>
-                <div className="button">
-                    <button className="getStart">Get Started</button>
+                <div className="top-button">
+                    <button className="getStart"><a href="/signup">Get Started</a></button>
                     <button className="howItWork">How It Work?</button>
                 </div>   
             </div>
