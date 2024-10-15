@@ -14,7 +14,7 @@ const Top = () => {
                 </p>
                 <div className="top-button">
                     <button className="getStart"><a href="/signup">Get Started</a></button>
-                    <button className="howItWork">How It Work?</button>
+                    <button className="howItWork"><a href="/booking">Book Now</a></button>
                 </div>   
             </div>
 
@@ -26,11 +26,11 @@ const Top = () => {
                     <p>Home Cleaned</p>
                 </div>
                 <div className="stat">
-                    <h2>126 +</h2>
+                    <h2>126+</h2>
                     <p>Professional Tools</p>
                 </div>
-                <div className="stat">
-                    <h2>99 %</h2>
+                <div className="stat-1">
+                    <h2>99%</h2>
                     <p>Satisfied Clients</p>
                 </div>
             </div>

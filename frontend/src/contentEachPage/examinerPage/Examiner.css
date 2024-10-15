@@ -1,0 +1,40 @@
+.examiner__container{
+    width: 1440px;
+    padding: auto;
+    margin-left: 50px;
+    background-color: #fff;
+}
+.examiner__heading{
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+.examiner__heading p{
+    padding: auto;
+}
+.examiner__heading h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+.examiner__main{
+    margin-left: 40px;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.examiner__task__icon{
+    width: 50px;
+    margin: 10px;
+}
+.examiner__main__section{
+    text-wrap: pretty;
+}
+.section__description{
+    color: #ccc;
+}
+.section__date{
+    color: orange;
+    cursor: pointer;
+}

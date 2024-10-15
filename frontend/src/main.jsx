@@ -13,6 +13,8 @@ import OurTeamPage from "./pages/OurTeamPage";
 import ServicePage from "./pages/ServicePage";
 import ApprociatePage from "./pages/ApprociatePage";
 import SignUp from "./Components/SignUp/SignUp";
+import Booking from "./pages/Booking";
+import ExaminerPage from "./pages/ExaminerPage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: <SignUp/>
+  },
+  {
+    path: "booking",
+    element: <Booking/>
+  },
+  {
+    path:"examiner",
+    element: <ExaminerPage/>
   }
 ]);
 
