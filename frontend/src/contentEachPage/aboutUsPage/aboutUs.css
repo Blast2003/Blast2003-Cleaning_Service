@@ -1,0 +1,67 @@
+.about-us-container{
+    margin-top: 50px;
+    width: 1440px;
+    height: 270px;
+    font-size: larger;
+}
+.about-us-content{
+    margin-top: 20px;
+    display: flex;
+    gap: 150px;
+}
+.about-us-left-content{
+    margin-left: 120px;
+}
+.about-us-heading{
+    text-transform: uppercase;
+}
+.star-about-us{
+    text-transform: uppercase;
+    color: #CC33CC;
+}
+.about-us-right-content{
+    margin-right: 120px;
+}
+.skill-name-and-percentage{
+    display: flex;
+}
+.skill{
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+.skill-name{
+    margin-left: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.skill-percentage-1{
+    margin-left: 340px;
+}
+.skill-percentage-2{
+    margin-left: 368px;
+}
+.skill-percentage-3{
+    margin-left: 238px;
+}
+.skill-percentage-4{
+    margin-left: 372px;
+}
+.skill-bar {
+    flex: 2;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 5px;
+    margin: 0 10px;
+}
+.skill-fill {
+    flex: 1;
+    background-color: #CC33CC; /* Change to your preferred color */
+    height: 100%;
+    transition: width 0.3s;
+}
+.about-us-video{
+    text-align: center;
+    width: 900px;
+}

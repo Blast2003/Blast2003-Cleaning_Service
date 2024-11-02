@@ -1,0 +1,9 @@
+.feature-container{
+    width: 1440px;
+    height: 250px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFF3FF;
+}
