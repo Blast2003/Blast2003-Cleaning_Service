@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar">
+      <a href="/home">
       <img src={logo} alt="" className="logo" />
+      </a>
 
       <ul>
         <li>

@@ -1,7 +1,7 @@
 import React from "react";
 import './Examiner.css';
 import icon from '../../assets/iconExaminer.png';
-import DatePickerTime from '../../Components/datePicker';
+import DatePickerTime from '../../Components/DateTimePicker/datePicker';
 
 function Examiner(){
     return (

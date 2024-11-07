@@ -1,7 +1,7 @@
 .about-us-container{
     margin-left: 50px;
     margin-bottom: 120px;
-    margin-top: 89px;
+    margin-top: 88px;
     font-size: larger;
 }
 .about-us-content{
@@ -57,7 +57,7 @@
 }
 .skill-fill {
     flex: 1;
-    background-color: #CC33CC; /* Change to your preferred color */
+    background-color: #CC33CC;
     height: 100%;
     transition: width 0.3s;
 }

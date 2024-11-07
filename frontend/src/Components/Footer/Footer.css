@@ -4,7 +4,6 @@
     color: #fff;
     font-family: Arial, sans-serif;
     font-size: large;
-    padding-top: 2px;
 }
 .footer-container{
     display: flex;
@@ -29,15 +28,12 @@
     width: 140px;
     padding: 0;
     margin-top: 0;
+    margin-bottom: 5px;
 }
 .footer-table{
     color: #fff;
 }
-.table{
-    color: #fff;
-}
 .footer-bottom{
-    border-top: 1px solid #444;
     margin-bottom: 1px;
     display: flex;
     justify-content: space-between;
