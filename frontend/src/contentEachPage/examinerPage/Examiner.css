@@ -1,5 +1,4 @@
 .examiner__container{
-    width: 1440px;
     padding: auto;
     background-color: #fff;
 }
@@ -7,20 +6,18 @@
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-}
-.examiner__heading p{
-    padding: auto;
+    margin-top: 20px;
 }
 .examiner__heading h2{
     font-size: 40px;
-    text-align: center;
+    align-items: center;
 }
 .examiner__main{
-    margin-left: 40px;
     padding: 20px;
     display: flex;
-    gap: 30px;
+    gap: 50px;
     align-items: center;
+    margin: 34px 40px 45px 40px;
 }
 .examiner__task__icon{
     width: 50px;

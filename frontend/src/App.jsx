@@ -13,14 +13,11 @@ function App() {
   return (
     <div className='container'>
       <div className="web">
-        {/* <Navbar/>
+        <Navbar/>
         <Top/>
         <Middle/>
         <Feature/>
-        <Footer/>  */}
-        <StaffCarpet/>
-        {/* <StaffFurniture/> */}
-        {/* <DatePickerTime/> */}
+        <Footer/> 
       </div>  
     </div>
   )
