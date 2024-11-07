@@ -21,7 +21,6 @@ ul{
     flex: 1;
     list-style: none;
     text-align: center;
-    margin-left: 250px;
 }
 ul li{
     display: inline-block;
