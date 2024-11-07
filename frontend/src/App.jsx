@@ -12,14 +12,12 @@ import StaffFurniture from './pages/staffFurniture'
 
 function App() {
   return (
-    <div className='container'>
-      <div className="web">
-        <Navbar/>
-        <Top/>
-        <Middle/>
-        <Feature/>
-        <Footer/> 
-      </div>  
+    <div>
+      <Navbar/>
+      <Top/>
+      <Middle/>
+      <Feature/>
+      <Footer/>
     </div>
   )
 }
