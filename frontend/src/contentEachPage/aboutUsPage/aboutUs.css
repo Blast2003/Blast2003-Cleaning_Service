@@ -1,5 +1,7 @@
 .about-us-container{
-    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 60px;
+    margin-top: 60px;
     width: 1440px;
     height: 270px;
     font-size: larger;
@@ -7,7 +9,7 @@
 .about-us-content{
     margin-top: 20px;
     display: flex;
-    gap: 150px;
+    gap: 120px;
 }
 .about-us-left-content{
     margin-left: 120px;

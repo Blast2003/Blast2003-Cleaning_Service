@@ -6,6 +6,8 @@
     font-family: Arial, sans-serif;
     width: 1440px;
     height: 240px;
+    margin-left: 50px;
+    margin-bottom: 0;
 }
 .footer-container{
     display: flex;
