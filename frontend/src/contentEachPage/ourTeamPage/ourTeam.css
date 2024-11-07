@@ -1,0 +1,61 @@
+
+    /* body {
+        background-color: rgb(221, 245, 242);
+    } */
+
+.container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.member-list-header {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.our-staff {
+    color: gray;
+}
+
+.meet-staff {
+    color: darkblue;
+}
+
+.cleaning-staff {
+    text-align: center;
+}
+
+.staff-members {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.staff-member {
+    text-align: center;
+}
+
+.member-description {
+    background-color: rgb(220, 220, 240);
+    text-align: center;
+    padding-top: 20px;
+    height: 100px;
+}
+
+.member-image {
+    width: 200px;
+    height: 250px;
+    border-radius: 8px;
+}
+
+.staf-img {
+    width: fit-content;
+    height: auto;
+    background-color: rng(153, 102, 204)
+}
+
