@@ -2,17 +2,13 @@
     align-items: center;
     background-color: #1B1850;
     color: #fff;
-    padding: 40px 20px;
     font-family: Arial, sans-serif;
-    width: 1440px;
-    height: 240px;
-    margin-left: 50px;
-    margin-bottom: 0;
+    font-size: large;
+    padding-top: 2px;
 }
 .footer-container{
     display: flex;
-    gap: 60px;
-    margin-left: 20px;
+    gap: 100px;
     cursor: pointer;
     justify-content: center;
 }
@@ -29,10 +25,6 @@
 .footer-section-4{
     color: #fff;
 }
-.footer-text-script{
-    padding: 2px;
-    margin-top: 5px;
-}
 .social-icon{
     width: 140px;
     padding: 0;
@@ -45,12 +37,12 @@
     color: #fff;
 }
 .footer-bottom{
-    border-top: 2px solid #444;
+    border-top: 1px solid #444;
+    margin-bottom: 1px;
     display: flex;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 20px;
-    align-items: center;
+    margin-left: 50px;
+    margin-right: 60px;
 }
 .footer-table td{
     text-decoration: none;

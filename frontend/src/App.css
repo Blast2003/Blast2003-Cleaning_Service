@@ -1,4 +1,6 @@
-.container{
-    margin-right: 0px;
-    margin-left: 49px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }

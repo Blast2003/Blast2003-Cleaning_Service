@@ -1,15 +1,13 @@
 .middle-container{
-    width: 1440px;
-    height: 600px;
     display: flex;
     align-items: center;
-    padding: 50px;
+    padding: 30px;
     justify-content: center;
     gap: 100px;
 }
 .image-2{
-    width: 390px;
-    height: 500px;
+    width: 350px;
+    height: 440px;
     background-color: #d8aaf8;
     border-radius: 20px;
     margin: 20px;
@@ -19,6 +17,7 @@
     max-width: 500px;
 }
 h4{
+    margin-top: 10px;
     color: #d97fd5;
     text-transform: uppercase;
     margin-bottom: 10px;

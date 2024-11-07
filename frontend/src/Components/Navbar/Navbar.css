@@ -1,5 +1,4 @@
 .navbar{
-    width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -8,10 +7,11 @@
     background-color: #fff;
 }
 .logo{
-    width: 140px;
+    width: 120px;
     cursor: pointer;
     margin: 0;
     padding: 0;
+    margin-left: 50px;
 }
 .icon-user{
     width: 30px;
