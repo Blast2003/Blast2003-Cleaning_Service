@@ -1,0 +1,26 @@
+
+.services {
+    padding: 40px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.service-img{
+    max-width: 100%;
+    height: auto;
+}
