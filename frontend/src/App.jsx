@@ -1,23 +1,31 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import DatePickerTime from './Components/DateTimePicker/datePicker'
-import Feature from './Components/Features/Feature'
-import Footer from './Components/Footer/Footer'
-import Middle from './Components/Middle/Middle'
-import Navbar from './Components/Navbar/Navbar'
+
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import OurTeamPage from './pages/OurTeamPage'
+import ServicePage from './pages/ServicePage'
+import ApprociatePage from './pages/ApprociatePage'
 import SignUp from './Components/SignUp/SignUp'
-import Top from './Components/Top/Top'
-import Carpet from './contentEachPage/Staff/carpet'
-import StaffCarpet from './pages/staffCarpet'
-import StaffFurniture from './pages/staffFurniture'
+import Booking from './pages/Booking'
+import ExaminerPage from './pages/ExaminerPage'
+import Staff from './pages/StaffPage'
 
 function App() {
   return (
     <div>
-      <Navbar/>
-      <Top/>
-      <Middle/>
-      <Feature/>
-      <Footer/>
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/home' element={<HomePage/>}/>
+        <Route path='/aboutUs' element={<AboutPage/>}/>
+        <Route path='/ourTeam' element={<OurTeamPage/>}/>
+        <Route path='/service' element={<ServicePage/>}/>
+        <Route path='/customerApprociate' element={<ApprociatePage/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/booking' element={<Booking/>}/>
+        <Route path='/examiner' element={<ExaminerPage/>}/>
+        <Route path='/staff' element={<Staff/>}/>
+      </Routes>
     </div>
   )
 }
