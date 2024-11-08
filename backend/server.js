@@ -19,7 +19,6 @@ app.use(cookieParser());
 // make the ROUTES
 router(app);
 
-
 const PORT = Variables.PORT;
 
 app.listen(PORT, () =>{
