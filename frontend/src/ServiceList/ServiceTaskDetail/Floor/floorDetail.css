@@ -1,0 +1,57 @@
+.floor__container {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    padding: 25px;
+}
+.floor__heading{
+    text-align: center;
+    font-weight: bolder;
+    margin: 20px;
+}
+.floor__main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 10px;
+    margin-bottom: 52px;
+}
+.floor__img{
+    width: 50px;
+}
+.floor__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
+  
+.floor__step-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #666;
+}
+  
+.floor__step-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+  
+.floor__step-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+  
+.floor__complete {
+    margin-top: 20px;
+    color: green;
+}

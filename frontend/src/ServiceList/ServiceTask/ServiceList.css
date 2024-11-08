@@ -1,0 +1,37 @@
+h4{
+    font-weight: bolder;
+    color: plum;
+    margin-left: 80px;
+}
+.currentTask{
+    padding: 10px;
+    margin: 10px 0 40px 0;
+}
+.name{
+    text-align: center;
+}
+.currentTask__content{
+    display: flex;
+    gap: 20px;
+    margin-left: 10px;
+}
+.currentTask__img{
+    width: 50px;
+    height: 60px;
+}
+.task__table{
+    width: 20%;
+    margin-left: 60px;
+}
+.taskDetail{
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+.taskDescription{
+    font-size: larger;
+}
+.taskDetail{
+    cursor: pointer;
+}

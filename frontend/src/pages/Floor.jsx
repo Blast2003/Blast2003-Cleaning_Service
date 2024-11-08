@@ -1,15 +1,15 @@
 import React from "react";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
-import Carpet from "../contentEachPage/Staff/carpet";
+import FloorNormal from "../ServiceList/ServiceTaskDetail/Floor/floorNormal";
 
-function StaffCarpet(){
+function Floor(){
     return(
         <div>
             <Navbar/>
-            <Carpet/>
+            <FloorNormal/>
             <Footer/>
         </div>
     );
 }
-export default StaffCarpet;
+export default Floor;

@@ -21,7 +21,7 @@ function Services() {
               Removes dirt and stains from carpets using steam or dry cleaning
               to refresh and sanitize.
             </p>
-            <a href="#">Learn More</a>
+            <a href="/carpet">Learn More</a>
           </div>
 
           <div class="service-card">
@@ -31,7 +31,7 @@ function Services() {
               Removes dirt and stains from carpets using steam or dry cleaning
               to refresh and sanitize.
             </p>
-            <a href="#">Learn More</a>
+            <a href="/furniture">Learn More</a>
           </div>
 
           <div class="service-card">
@@ -41,7 +41,7 @@ function Services() {
               Removes dirt and stains from carpets using steam or dry cleaning
               to refresh and sanitize.
             </p>
-            <a href="#">Learn More</a>
+            <a href="/wall">Learn More</a>
           </div>
 
           <div class="service-card">
@@ -51,7 +51,7 @@ function Services() {
               Removes dirt and stains from carpets using steam or dry cleaning
               to refresh and sanitize.
             </p>
-            <a href="#">Learn More</a>
+            <a href="/floor">Learn More</a>
           </div>
         </div>
       </section>

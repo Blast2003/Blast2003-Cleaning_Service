@@ -1,15 +1,15 @@
 import React from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import Wall from "../contentEachPage/Staff/wall";
 import Footer from "../Components/Footer/Footer";
+import FloorDetail from "../ServiceList/ServiceTaskDetail/Floor/floorDetail";
 
-function StaffWall(){
+function FloorDetailPage(){
     return(
         <div>
             <Navbar/>
-            <Wall/>
+            <FloorDetail/>
             <Footer/>
         </div>
     );
 }
-export default StaffWall;
+export default FloorDetailPage;

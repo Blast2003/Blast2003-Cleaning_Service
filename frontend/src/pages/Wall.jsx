@@ -1,15 +1,15 @@
 import React from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import Furniture from "../contentEachPage/Staff/furniture";
+import WallNormal from "../ServiceList/ServiceTaskDetail/Wall/wallNormal";
 import Footer from "../Components/Footer/Footer";
 
-function StaffFurniture(){
+function Wall(){
     return(
         <div>
             <Navbar/>
-            <Furniture/>
+            <WallNormal/>
             <Footer/>
         </div>
     );
 }
-export default StaffFurniture;
+export default Wall;
