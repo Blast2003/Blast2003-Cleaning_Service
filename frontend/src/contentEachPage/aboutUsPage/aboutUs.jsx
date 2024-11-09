@@ -6,14 +6,10 @@ function About(){
         <div className="about-us-container">
             <div className="about-us-content">
                 <div className="about-us-left-content">
-                    <h4 className="star-about-us">⭐ ABOUT US</h4>
-                    <h2 className="about-us-heading">Clean Home with Our <br/>
-                    Professional Cleaning <br/>
-                    Services</h2>
-                    <p className="about-us-description">
-                        Faucibus commodo a aenean et sit quique ipsum. <br/>
-                        Consequat eu id ut dolor felis quis. sagittis a sapien pulvinar etiam.
-                    </p>
+                    <h5 className="AboutUS">✨About Us</h5>
+                    <h2 className="about-us-heading">
+                    Clean Home with Our Professional Cleaning Services
+                    </h2>      
                 </div>
                 <div className="about-us-right-content">
                     <table className="skill">

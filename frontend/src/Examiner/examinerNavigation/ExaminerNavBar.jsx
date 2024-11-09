@@ -1,16 +1,13 @@
 import React from "react";
-import "./Navbar.css";
+import "./ExaminerNavBar.css";
 import logo from "../../assets/logo.png";
-import user from "../../assets/user.png";
+import examiner from "../../assets/examiner.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const ExaminerNavbar = () => {
   return (
-    <div className="navbar">
-      <a href="/home">
+    <div className="examinerNavbar">
       <img src={logo} alt="" className="logo" />
-      </a>
-
       <ul>
         <li>
           <a href="/home">Home</a>
@@ -29,15 +26,15 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="icon-user">
-        <img src={user} alt="" className="icon-user" />
+        <img src={examiner} alt="" className="icon-user" />
       </div>
       <button id="logout">
         <h3>
-          <a href="/signin">Logout</a>
+          <a href="/signup">Logout</a>
         </h3>
       </button>
     </div>
   );
 };
 
-export default Navbar;
+export default ExaminerNavbar;

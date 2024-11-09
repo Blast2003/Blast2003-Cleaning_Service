@@ -1,0 +1,118 @@
+.signin-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+}
+.signin-container h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+}
+.signin-container h3{
+    text-align: center;
+    font-weight: 400;
+    font-size: 29;
+    margin: 10px;
+}
+  
+.signin-form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.signin-form label {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: bolder;
+}
+  
+.signin-form input[type="text"],
+.signin-form input[type="email"],
+.signin-form input[type="password"] {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signin-button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #888;
+    position: relative;
+}
+
+.or-divider span {
+    background: #fff;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.or-divider:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ddd;
+    z-index: 0;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    font-size: 12px;
+    cursor: pointer;
+    flex: 1;
+    margin: 5px;
+}
+
+.social-button.staff {
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.social-button.examiner {
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.signup-img{
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;  
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signup-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}

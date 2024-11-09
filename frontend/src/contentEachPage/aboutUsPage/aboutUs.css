@@ -1,7 +1,7 @@
 .about-us-container{
     margin-left: 50px;
-    margin-bottom: 120px;
-    margin-top: 88px;
+    margin-bottom: 136px;
+    margin-top: 100px;
     font-size: larger;
 }
 .about-us-content{
@@ -12,8 +12,15 @@
 .about-us-left-content{
     margin-left: 120px;
 }
+.AboutUS{
+    margin-left: 230px;
+}
 .about-us-heading{
     text-transform: uppercase;
+    margin-right: 20px;
+}
+.about-us-description{
+    margin: 0 0 0 50px;
 }
 .star-about-us{
     text-transform: uppercase;

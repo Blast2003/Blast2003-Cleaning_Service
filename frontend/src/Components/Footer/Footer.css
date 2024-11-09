@@ -30,6 +30,9 @@
     margin-top: 0;
     margin-bottom: 5px;
 }
+.footer-logo{
+    margin-right: 255px;
+}
 .footer-table{
     color: #fff;
 }
@@ -43,4 +46,8 @@
 .footer-table td{
     text-decoration: none;
     color: #fff
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }

@@ -1,0 +1,42 @@
+.examinerNavbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px 7%;
+    background-color: #fff;
+}
+.logo{
+    width: 120px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    margin-left: 50px;
+}
+.icon-user{
+    width: 30px;
+    margin-right: 40px;
+}
+ul{
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+ul li{
+    display: inline-block;
+    margin: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+ul li a{
+    text-decoration: none;
+}
+#logout{
+    background-color: grey;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+}

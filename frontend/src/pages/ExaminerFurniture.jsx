@@ -1,15 +1,15 @@
 import React from "react";
 import ExaminerNavbar from "../Examiner/examinerNavigation/ExaminerNavBar";
+import FurnitureDetail from "../ServiceList/ServiceTaskDetail/Furniture/furnitureDetail";
 import Footer from "../Components/Footer/Footer";
-import ServiceList from "../ServiceList/ServiceTask/ServicesList";
 
-function ExaminerPage(){
-    return (
+function ExaminerFurniturePage(){
+    return(
         <div>
             <ExaminerNavbar/>
-            <ServiceList/>
+            <FurnitureDetail/>
             <Footer/>
         </div>
-    );
+    )
 }
-export default ExaminerPage;
+export default ExaminerFurniturePage;

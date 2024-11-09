@@ -32,16 +32,24 @@ const Footer = () => {
                     <h3 className="footer-heading">Services</h3>
                     <table className="table">
                         <tr>
-                            <td>Carpet Cleaning</td>
+                            <td>
+                                <a href="#">Carpet Cleaning</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Furniture Cleaning</td>
+                            <td>
+                                <a href="#">Furniture Cleaning</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Wall Washing</td>
+                            <td>
+                                <a href="#">Wall washing</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Floor Cleaning</td>
+                            <td>
+                                <a href="#">Floor Cleaning</a>
+                            </td>
                         </tr>
                     </table>
                 </div>

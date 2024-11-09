@@ -1,0 +1,58 @@
+.furniture__normal__container {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin-bottom: 32px;
+    padding: 25px;
+}
+.furniture__normal__heading{
+    text-align: center;
+    font-weight: bolder;
+    margin: 20px;
+}
+.furniture__normal__main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    margin-bottom: 68px;
+}
+.furniture__normal__img{
+    width: 50px;
+}
+.furniture__normal__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
+  
+.furniture__normal__step-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #666;
+}
+  
+.furniture__normal__step-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+  
+.furniture__normal__step-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+  
+.furniture__normal__complete {
+    margin-top: 20px;
+    color: green;
+}

@@ -1,13 +1,16 @@
 import React from "react";
-import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
+import StaffNavbar from "../Staff/staffNavbar";
+import StaffServiceList from "../ServiceList/ServiceTask/StaffServiceList";
 
-function Staff(){
+function StaffPage(){
     return(
         <div>
-        <Navbar/>
-        <Footer/>
+            <StaffNavbar/>
+            <StaffServiceList/>
+            <Footer/>
         </div>
+        
     );
 }
-export default Staff;
+export default StaffPage;
