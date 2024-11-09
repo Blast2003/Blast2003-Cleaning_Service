@@ -1,19 +1,19 @@
 .floor__container {
     font-family: Arial, sans-serif;
     padding: 0;
-    padding: 25px;
+    padding: 10px;
 }
 .floor__heading{
     text-align: center;
     font-weight: bolder;
-    margin: 20px;
+    margin-top: 25px;
 }
 .floor__main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
-    padding: 10px;
-    margin-bottom: 52px;
+    padding: 20px;
+    margin-bottom: 70px;
 }
 .floor__img{
     width: 50px;

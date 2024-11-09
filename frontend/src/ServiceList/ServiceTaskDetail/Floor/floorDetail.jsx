@@ -3,7 +3,7 @@ import './FloorDetail.css';
 import icon from '../../../assets/iconExaminer.png';
 import DatePickerTime from '../../../Components/DateTimePicker/datePicker';
 
-const FloorDetail = () => {
+function FloorDetail(){
   return (
     <div className="floor__container">
       <div className='floor__heading'>

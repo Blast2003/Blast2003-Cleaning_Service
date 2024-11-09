@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
-    padding: 20px;
+    padding: 16px;
 }
 .furniture__img{
     width: 50px;

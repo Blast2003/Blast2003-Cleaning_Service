@@ -33,22 +33,22 @@ const Footer = () => {
                     <table className="table">
                         <tr>
                             <td>
-                                <a href="/carpet">Carpet Cleaning</a>
+                                <a href="#">Carpet Cleaning</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="/furniture">Furniture Cleaning</a>
+                                <a href="#">Furniture Cleaning</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="/wall">Wall washing</a>
+                                <a href="#">Wall washing</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="/floor">Floor Cleaning</a>
+                                <a href="#">Floor Cleaning</a>
                             </td>
                         </tr>
                     </table>

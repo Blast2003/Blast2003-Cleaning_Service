@@ -1,37 +1,64 @@
-h4{
-    font-weight: bolder;
+.serviceList {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .serviceList__title {
     color: plum;
-    margin-left: 80px;
-}
-.currentTask{
-    padding: 10px;
-    margin: 10px 0 40px 0;
-}
-.name{
+    font-size: 24px;
     text-align: center;
-}
-.currentTask__content{
+    margin-bottom: 10px;
+  }
+  
+  .serviceList__name {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .serviceList__content {
     display: flex;
     gap: 20px;
-    margin-left: 10px;
-}
-.currentTask__img{
-    width: 50px;
-    height: 60px;
-}
-.task__table{
-    width: 20%;
-    margin-left: 60px;
-}
-.taskDetail{
-    border-radius: 10px;
-    height: 40px;
-    width: 100px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .serviceList__task {
+    width: 23%;
     margin-bottom: 20px;
-}
-.taskDescription{
-    font-size: larger;
-}
-.taskDetail{
-    cursor: pointer;
-}
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .serviceList__img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .serviceList__description {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .serviceList__button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: auto;
+  }
+  
+  .serviceList__button a {
+    color: white;
+    text-decoration: none;
+  }
