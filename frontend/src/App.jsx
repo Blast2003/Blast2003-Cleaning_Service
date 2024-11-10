@@ -31,6 +31,7 @@ import ExaminerCarpetPage from './pages/ExaminerCarpet'
 import ExaminerFloorPage from './pages/ExaminerFloor'
 import ExaminerWallPage from './pages/ExaminerWall'
 import ExaminerFurniturePage from './pages/ExaminerFurniture'
+import PricingPage from './pages/PricingPage'
 
 
 
@@ -67,6 +68,7 @@ function App() {
         <Route path='/examinerfloor' element={<ExaminerFloorPage/>}/>
         <Route path='/examinerwall' element={<ExaminerWallPage/>}/>
         <Route path='/examinerfurniture' element={<ExaminerFurniturePage/>}/>
+        <Route path='/pricing' element={<PricingPage/>}/>
       </Routes>
     </div>
   )
