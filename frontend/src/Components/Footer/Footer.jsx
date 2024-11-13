@@ -1,7 +1,6 @@
 import React from "react";
 import './Footer.css';
 import socialIcon from '../../assets/socialIcon.png';
-import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -33,22 +32,22 @@ const Footer = () => {
                     <table className="table">
                         <tr>
                             <td>
-                                <a href="#">Carpet Cleaning</a>
+                                <a href="/carpet">Carpet Cleaning</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">Furniture Cleaning</a>
+                                <a href="/floor">Furniture Cleaning</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">Wall washing</a>
+                                <a href="/wall">Wall washing</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">Floor Cleaning</a>
+                                <a href="/furniture">Floor Cleaning</a>
                             </td>
                         </tr>
                     </table>

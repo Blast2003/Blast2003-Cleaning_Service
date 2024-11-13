@@ -10,11 +10,6 @@ import Booking from './pages/default/Booking'
 import ExaminerPage from './pages/examiner/ExaminerPage'
 import StaffPage from './pages/staff/StaffPage'
 
-// Service Details
-import CarpetNormal from "./ServiceList/ServiceTaskDetail/Carpet/carpetNormal"
-import FloorNormal from "./ServiceList/ServiceTaskDetail/Floor/floorNormal"
-import FurnitureNormal from "./ServiceList/ServiceTaskDetail/Furniture/furnitureNormal"
-import WallNormal from "./ServiceList/ServiceTaskDetail/Wall/wallNormal"
 
 //Service Pages
 import Carpet from './pages/default/Carpet'
@@ -37,6 +32,8 @@ import ExaminerCarpetPage from './pages/examiner/ExaminerCarpet'
 import ExaminerFloorPage from './pages/examiner/ExaminerFloor'
 import ExaminerWallPage from './pages/examiner/ExaminerWall'
 import ExaminerFurniturePage from './pages/examiner/ExaminerFurniture'
+import PricingPage from "./pages/default/PricingPage"
+
 
 import { useRecoilValue } from 'recoil'
 import customerAtom from './atom/customerAtom'
@@ -60,26 +57,19 @@ function App() {
         {/* Default Page */}
         <Route path='/' element={<HomePage/>}/>
         <Route path="/home" element={<HomePage/>} />
+        <Route path="/pricing" element={<PricingPage/>} />
         <Route path='/aboutUs' element={<AboutPage/>}/>
         <Route path='/ourTeam' element={<OurTeamPage/>}/>
         <Route path='/service' element={<ServicePage/>}/>
         <Route path='/customerApprociate' element={<ApprociatePage/>}/>
-        <Route path='/booking' element={<Booking/>}/>
+        <Route path='/booking' element={ customer ? <Booking/> : <SignIn/>}/>
 
-
-        {/* Authentication: Staff + Examiner */}
-        <Route path='/examiner' element={examiner ? <ExaminerPage/> : <SignInExaminer/>}/>
-        <Route path='/staff' element={ staff ? <StaffPage/> : <SignInStaff/>} />
 
         {/* Service + Task Detail */}
         <Route path='/carpet' element={<Carpet/>}/>
-        <Route path='/carpetdetail' element={<CarpetNormal/>}/>
         <Route path='/floor' element={<Floor/>}/>
-        <Route path='/floordetail' element={<FloorNormal/>}/>
         <Route path='/wall' element={<Wall/>}/>
-        <Route path='/walldetail' element={<WallNormal/>}/>
         <Route path='/furniture' element={<Furniture/>}/>
-        <Route path='/furnituredetail' element={<FurnitureNormal/>}/>
 
         {/* Customer */}
         <Route path="/signin" element={customer ? <HomePage/> : <SignIn />} />
@@ -89,6 +79,8 @@ function App() {
         {/* staff */}
         <Route path='/StaffSignin' element={ staff ? <Navigate to={"/staff"}/> : <SignInStaff/>}/>
 
+        <Route path='/staff' element={ staff ? <StaffPage/> : <SignInStaff/>} />
+
         <Route path='/staffcarpet' element={staff ? <StaffCarpetPage/> : <SignInStaff/>}/>
         <Route path='/stafffloor' element={staff ? <StaffFloorPage/> : <SignInStaff/>}/>
         <Route path='/staffwall' element={staff ? <StaffWallPage/> : <SignInStaff/>}/>
@@ -96,6 +88,8 @@ function App() {
 
         {/* examiner */}
         <Route path='/ExaminerSignin' element={examiner ? <Navigate to={"/examiner"}/> : <SignInExaminer/>}/>
+
+        <Route path='/examiner' element={examiner ? <ExaminerPage/> : <SignInExaminer/>}/>
 
         <Route path='/examinercarpet' element={examiner ? <ExaminerCarpetPage/> : <SignInExaminer/>}/>
         <Route path='/examinerfloor' element={examiner ? <ExaminerFloorPage/> : <SignInExaminer/>}/>
