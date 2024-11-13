@@ -19,17 +19,6 @@ const taskSchema = mongoose.Schema({
         ref: 'Service',
         required: true,
     },
-    // format "10:15:30 AM"
-    completeTime:{ // when click complete -> also update
-        type: String,
-        default: "",
-    },
-
-    // format "10/9/2024"
-    completeDate:{ // when click complete -> also update
-        type: String,
-        default: "",
-    },
 
 }, {
     timestamps: true,

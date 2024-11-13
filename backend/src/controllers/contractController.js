@@ -33,22 +33,6 @@ export const createContract = async(req, res) =>{
         const ExaminerName = newExaminer.name
 
 
-         // Fetch all tasks in the taskList
-         const tasks = await Task.find({ _id: { $in: taskList } });
-
-
-         // Checks Task with the same Name in the Contract
-         const taskNames = tasks.map(task => task.TaskName);
-         // add taskNames to Set which remove the same taskName
-         const uniqueTaskNames = new Set(taskNames);
- 
-         // Check for duplicate TaskNames in the taskList
-         if (uniqueTaskNames.size !== taskNames.length) {
-             return res.status(400).json({ 
-                error: "The task list contains duplicate TaskNames. Please ensure all tasks are unique." 
-            });
-         }
-
         // Create new Contract
         const newContract = await Contract ({
             executionTime,

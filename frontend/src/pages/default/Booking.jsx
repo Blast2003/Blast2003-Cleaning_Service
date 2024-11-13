@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../Components/Navbar/Navbar";
-import Footer from "../Components/Footer/Footer";
-import BookingPage from "../contentEachPage/bookingPage/bookingPage";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
+import BookingPage from "../../contentEachPage/bookingPage/bookingPage";
 
 function Booking(){
     return(

@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../Components/Footer/Footer";
-import StaffNavbar from "../Staff/staffNavbar";
-import StaffServiceList from "../ServiceList/ServiceTask/StaffServiceList";
+import Footer from "../../Components/Footer/Footer";
+import StaffNavbar from "../../Staff/staffNavbar";
+import StaffServiceList from "../../ServiceList/ServiceTask/StaffServiceList";
 
 function StaffPage(){
     return(

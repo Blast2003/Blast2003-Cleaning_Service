@@ -1,67 +1,135 @@
-import React from "react";
-import './bookingPage.css';
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { MdOutlineCleaningServices } from "react-icons/md";
+import "./BookingPage.css"; // Tạo một file CSS để customize
 
-function BookingPage(){
-    return(
-        <div className="booking-container">
-            <form action="">
-                <div className="form-user-infor">
-                    <label>Enter your name: </label>
-                    <input type="text" placeholder="Enter your name"></input><br/>
-                    <label>Enter your address: </label>
-                    <input type="text" placeholder="Address"></input><br/>
-                    <label>Enter your phone: </label>
-                    <input type="text" placeholder="Phone number"></input><br/>
-                    <label>Enter your email: </label>
-                    <input type="text" placeholder="example123@gmail.com"></input><br/>
+function BookingPage() {
+    const [selectedService, setSelectedService] = useState("");
+    const [serviceType, setServiceType] = useState("");
+    const [selectedStaff, setSelectedStaff] = useState("");
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const services = ["Carpet Cleaning", "Furniture Cleaning", "Wall Washing", "Floor Cleaning"];
+    const staffList = ["Staff 1", "Staff 2", "Staff 3", "Staff 4"];
+    const serviceTypes = ["basic", "pro", "deluxe"];
+
+    return (
+        <div className="booking-page">
+            <div className="left-section">
+                <div className="service-selector">
+                    <label>Service</label>
+                    <select
+                        value={selectedService}
+                        onChange={(e) => setSelectedService(e.target.value)}
+                        className="custom-select"
+                    >
+                        <option value="">Select a Service</option>
+                        {services.map((service) => (
+                            <option key={service} value={service}>
+                                {service}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-                <div className="form-choose-service">
-                    <label>Choose the services</label>
-                    <input type="radio"></input>
-                    <label>House</label>
-                    <input type="radio"></input>
-                    <label>Apartment</label><br/>
-                    <label>Carpet Cleaning</label>
-                    <select>
-                        <option value="">None</option>
-                        <option value="">Vacuuming</option>
-                        <option value="">Pre-treatment</option>
-                        <option value="">Spot cleaning</option>
-                        <option value="">Deep cleaning</option>
-                        <option value="">Drying</option>
-                    </select> <br/>
-                    <label>Furniture Cleaning</label>
-                    <select>
-                        <option value="">None</option>
-                        <option value="">Dusting</option>
-                        <option value="">Vacuuming</option>
-                        <option value="">Spot cleaning</option>
-                        <option value="">Upholstery cleaning</option>
-                        <option value="">Leather conditioning</option>
-                    </select> <br/>
-                    <label>Wall Washing</label>
-                    <select>
-                        <option value="">None</option>
-                        <option value="">Dusting</option>
-                        <option value="">Washing</option>
-                        <option value="">Rinsing</option>
-                        <option value="">Drying</option>
-                    </select> <br/>
-                    <label>Floor Cleaning</label>
-                    <select>
-                        <option value="">None</option>
-                        <option value="">Sweeping or vacuuming</option>
-                        <option value="">Mapping</option>
-                        <option value="">Scubbing</option>
-                        <option value="">Polishing or waxing</option>
-                        <option value="">Rug cleaning</option>
-                    </select> <br/>
+
+                {selectedService && (
+                    <div className="service-type-selector">
+                        <label>Service Type</label>
+                        <div className="radio-group">
+                            {serviceTypes.map((type) => (
+                                <label key={type} className="radio-option">
+                                    <input
+                                        type="radio"
+                                        value={type}
+                                        checked={serviceType === type}
+                                        onChange={(e) => setServiceType(e.target.value)}
+                                    />
+                                    {type}
+                                </label>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                <div className="staff-selector">
+                    <label>Staff</label>
+                    <select
+                        value={selectedStaff}
+                        onChange={(e) => setSelectedStaff(e.target.value)}
+                        className="custom-select"
+                    >
+                        <option value="">Select Staff</option>
+                        {staffList.map((staff) => (
+                            <option key={staff} value={staff}>
+                                {staff}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-                <div className="form-select-time">
-                <input id="input-picker" />
+
+                <div className="date-picker">
+                    <label>Execution Time</label>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={(date) => setSelectedDate(date)}
+                        dateFormat="dd/MM/yyyy"
+                        placeholderText="Select a Date"
+                        className="custom-date-picker"
+                    />
                 </div>
-            </form>
+            </div>
+
+                <div className="right-section">
+                    {selectedService &&(
+                      <>
+                      <div className="service-summary">
+                            <h2>Service Summary</h2>
+                            <MdOutlineCleaningServices className="icon" />
+                      </div>
+                      
+                      {/* Service Name */}
+                      <b className="service-name">{selectedService}</b>
+                    
+                      {/* Service Detail */}
+                      <div className="description-section">
+                            <p>Description</p>
+                            <p>Removes dirt and stains from carpets using steam or dry cleaning to refresh and sanitize.</p>
+                       </div>
+                      </>  
+                    )}
+                
+                    {serviceType &&(
+                        <>
+                        <div className="service-type-section">
+                            <p>Service Type</p>
+                            <p>{serviceType}</p>
+                        </div>
+                        </>
+                    )}
+
+                    {selectedDate &&(
+                        <>
+                        <div className="price-section">
+                            <div className="left">
+                                <p>Total</p>
+                                <p>Execution Day</p>
+                            </div>
+                            <div className="right">
+                                <p>$300</p>
+                                <p>{selectedDate?.toLocaleDateString("en-GB")}</p>
+                            </div>
+                        </div>
+
+                        {/* Contract Button */}
+                        <div className="contract-button-container">
+                            <button className="contract-button">Make Contract</button>
+                        </div>
+                        </>
+                    )}
+                </div>
         </div>
     );
 }
+
 export default BookingPage;

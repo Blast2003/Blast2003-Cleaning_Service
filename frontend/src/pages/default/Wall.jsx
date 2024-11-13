@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../Components/Navbar/Navbar";
-import WallNormal from "../ServiceList/ServiceTaskDetail/Wall/wallNormal";
-import Footer from "../Components/Footer/Footer";
+import Navbar from "../../Components/Navbar/Navbar";
+import WallNormal from "../../ServiceList/ServiceTaskDetail/Wall/wallNormal";
+import Footer from "../../Components/Footer/Footer";
 
 function Wall(){
     return(
