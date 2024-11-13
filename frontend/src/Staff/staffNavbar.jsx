@@ -2,9 +2,12 @@ import React from "react";
 import "./staffNavbar.css";
 import logo from "../assets/logo.png";
 import staff from "../assets/staff.png";
-import { Link } from "react-router-dom";
+import useStaffLogout from "../hooks/staffLogout"
 
 const StaffNavbar = () => {
+
+  const logout = useStaffLogout();
+
   return (
     <div className="staffNavbar">
       <img src={logo} alt="" className="logo" />
@@ -28,9 +31,9 @@ const StaffNavbar = () => {
       <div className="icon-user">
         <img src={staff} alt="" className="icon-user" />
       </div>
-      <button id="logout">
+      <button id="logout" onClick={logout}>
         <h3>
-          <a href="/signup">Logout</a>
+          Logout  
         </h3>
       </button>
     </div>

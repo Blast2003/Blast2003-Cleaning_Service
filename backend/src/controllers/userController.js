@@ -61,6 +61,18 @@ export const UserLogin = async (req, res) =>{
     try {
         const {email, password} = req.body
 
+        if(!email){
+            return res.status(400).json({
+                error: "Please enter email"
+            })
+        }
+
+        if(!password){
+            return res.status(400).json({
+                error: "Please enter password"
+            })
+        }
+
         const user = await User.findOne({ email })
         const isCorrectPassword = bcrypt.compareSync(password, user?.password || "")
         if(!user ||  !isCorrectPassword){

@@ -7,7 +7,7 @@ const contractSchema = mongoose.Schema({
     // 10:15:30 AM
     executionTime:{
         type: String,
-        required: true,
+        default: "9:00 AM",
     },
 
     //  10/9/2024
@@ -36,9 +36,9 @@ const contractSchema = mongoose.Schema({
         {type: mongoose.Schema.Types.ObjectId, ref: "Task"},
     ],
     participants:[
-        {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-        {type: mongoose.Schema.Types.ObjectId, ref: "Staff"},
-        {type: mongoose.Schema.Types.ObjectId, ref: "Examiner"}
+        {type: mongoose.Schema.Types.ObjectId, ref: "User"}, // already has as global object 
+        {type: mongoose.Schema.Types.ObjectId, ref: "Staff"}, // choose staff  => retrieve StaffID
+        {type: mongoose.Schema.Types.ObjectId, ref: "Examiner"} // service => retrieve ExaminerID
     ],
     totalPrice:{
         type: String,

@@ -2,9 +2,12 @@ import React from "react";
 import "./ExaminerNavBar.css";
 import logo from "../../assets/logo.png";
 import examiner from "../../assets/examiner.png";
-import { Link } from "react-router-dom";
+import useExaminerLogout from "../../hooks/examinerLogout"
 
 const ExaminerNavbar = () => {
+
+  const logout = useExaminerLogout()
+
   return (
     <div className="examinerNavbar">
       <img src={logo} alt="" className="logo" />
@@ -28,9 +31,9 @@ const ExaminerNavbar = () => {
       <div className="icon-user">
         <img src={examiner} alt="" className="icon-user" />
       </div>
-      <button id="logout">
+      <button id="logout" onClick={logout}>
         <h3>
-          <a href="/signup">Logout</a>
+          Logout
         </h3>
       </button>
     </div>

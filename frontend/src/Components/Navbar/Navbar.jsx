@@ -2,9 +2,17 @@ import React from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import user from "../../assets/user.png";
-import { Link } from "react-router-dom";
+import useLogout from "../../hooks/useLogout"
+import customerAtom from "../../atom/customerAtom";
+import { useRecoilValue } from "recoil";
+
 
 const Navbar = () => {
+  const customer = useRecoilValue(customerAtom)
+  console.log(customer)
+
+
+  const logout = useLogout();
   return (
     <div className="navbar">
       <a href="/home">
@@ -27,15 +35,26 @@ const Navbar = () => {
         <li>
           <a href="/customerApprociate">Customer Approciate</a>
         </li>
+        {customer == null &&(
+          <>
+          <li>
+            <a href="/signin">Sign In</a>
+          </li>
+          </>
+        )}
       </ul>
-      <div className="icon-user">
-        <img src={user} alt="" className="icon-user" />
-      </div>
-      <button id="logout">
-        <h3>
-          <a href="/signin">Logout</a>
-        </h3>
-      </button>
+      {customer && (
+        <>
+          <div className="icon-user">
+            <img src={user} alt="user" className="icon-user" />
+          </div>
+          <button id="logout" onClick={logout}>
+            <h3>Logout</h3>
+          </button>
+        </>
+      )}
+      
+
     </div>
   );
 };

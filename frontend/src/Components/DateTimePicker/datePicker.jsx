@@ -3,24 +3,22 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 
-function DatePickerTime (){
+function DatePickerTime() {
     const [selectedDate, setSelectedDate] = useState(null);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
 
-    return(
+    return (
         <div>
             <DatePicker
-                selected = {selectedDate}
-                onChange = {handleDateChange}
-                dateFormat = "dd/MM/YYYY; hh:mm"
-                showTimeSelect
-                timeIntervals={30}
-                timeFormat="hh:mm"
+                selected={selectedDate}
+                onChange={handleDateChange}
+                dateFormat="dd/MM/yyyy"
             />
         </div>
     );
 }
+
 export default DatePickerTime;

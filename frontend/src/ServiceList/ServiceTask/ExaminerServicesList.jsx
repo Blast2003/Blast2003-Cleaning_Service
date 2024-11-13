@@ -5,7 +5,7 @@ import furniture from "../../assets/furniture.png";
 import wall from "../../assets/wall.png";
 import floor from "../../assets/floor.png";
 
-function ServiceList() {
+function ExaminerServicesList() {
     return (
         <div className="serviceList">
             <h3 className="serviceList__title">✨TASK UNDERTAKE</h3>
@@ -31,4 +31,4 @@ function ServiceList() {
     );
 }
 
-export default ServiceList;
+export default ExaminerServicesList;
