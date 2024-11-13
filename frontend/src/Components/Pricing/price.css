@@ -1,0 +1,72 @@
+/* CustomPricingTable.css */
+
+.custom-pricing-table {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  .custom-pricing-table h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-pricing-table p {
+    margin-bottom: 2rem;
+    color: #666;
+  }
+  
+  .custom-plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .custom-plan {
+    background-color: #f3f4ff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-plan h3 {
+    font-size: 1.2rem;
+    color: #7c4dff;
+    margin-bottom: 10px;
+  }
+  
+  .custom-price {
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+  
+  .custom-price span {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .custom-plan ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .custom-plan ul li {
+    margin-bottom: 10px;
+  }
+  
+.pay-button {
+    background-color: #e1bee7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+.pay-button:hover {
+    background-color: #d1a1d3;
+  }
