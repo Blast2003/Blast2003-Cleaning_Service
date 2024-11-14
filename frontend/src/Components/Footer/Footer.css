@@ -54,3 +54,16 @@
     text-decoration: none;
     color: #fff
 }
+
+.booked-services-forward {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 27px;
+    height:50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-right: 5px;
+    color:#1B1850;
+    background-color: rgb(225, 192, 203);
+}

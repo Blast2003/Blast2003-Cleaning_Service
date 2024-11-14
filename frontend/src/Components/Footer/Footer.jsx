@@ -51,6 +51,7 @@ const Footer = () => {
                     📍123 Main St, Suite 500, New York, NY 10001<br/>
                      📞+1 (333) 000-0000</p>
                 </div>
+                <a href="#gosomewhere" class="booked-services-forward">Booked Services</a>
             </div>
             <div className="footer-bottom">
                 <p>COPYRIGHT © 2023 BERESIN | DESIGN BY PHI + NGUYEN + QUAN</p>

@@ -12,7 +12,13 @@ function OurTeam() {
       <section class="cleaning-staff">
         <div class="staff-members">
           <div class="staff-member">
-            <img src="http://surl.li/zakygu" alt="" className="member-image" />
+            <a href="staffdetails">
+              <img
+                src="http://surl.li/zakygu"
+                alt=""
+                className="member-image"
+              />
+            </a>
             <div className="member-description">
               <h3>James Wang</h3>
               <p>Cleaning Supervisor</p>
@@ -20,7 +26,13 @@ function OurTeam() {
           </div>
 
           <div class="staff-member">
-            <img src="http://surl.li/wqwwvv" alt="" className="member-image" />
+            <a href="staffdetails">
+              <img
+                src="http://surl.li/wqwwvv"
+                alt=""
+                className="member-image"
+              />
+            </a>
             <div className="member-description">
               <h3>Sarah Johnson</h3>
               <p>Operation Manager</p>
@@ -28,7 +40,13 @@ function OurTeam() {
           </div>
 
           <div class="staff-member">
-            <img src="http://surl.li/qbgayh" alt="" className="member-image" />
+            <a href="staffdetails">
+              <img
+                src="http://surl.li/qbgayh"
+                alt=""
+                className="member-image"
+              />
+            </a>
             <div className="member-description">
               <h3>David Nguyen</h3>
               <p>Cleaning Technician</p>
@@ -36,7 +54,13 @@ function OurTeam() {
           </div>
 
           <div class="staff-member">
-            <img src="http://surl.li/kllirk" alt="" className="member-image" />
+            <a href="staffdetails">
+              <img
+                src="http://surl.li/kllirk"
+                alt=""
+                className="member-image"
+              />
+            </a>
             <div className="member-description">
               <h3>Samantha Lee</h3>
               <p>Marketing Coordinator</p>

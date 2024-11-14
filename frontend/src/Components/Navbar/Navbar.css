@@ -1,14 +1,13 @@
 .navbar{
-    width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    padding: 15px 7%;
+    padding: 15px;
     background-color: #fff;
 }
 .logo{
-    width: 140px;
+    width: 120px;
     cursor: pointer;
     margin: 0;
     padding: 0;
@@ -17,20 +16,19 @@
     width: 30px;
     margin-right: 40px;
 }
-ul{
+.navbar-test{
     flex: 1;
     list-style: none;
     text-align: center;
-    margin-left: 250px;
 }
-ul li{
+.navbar-test .navbar-link{
     display: inline-block;
     margin: 5px 20px;
     font-size: 14px;
     cursor: pointer;
     text-transform: uppercase;
 }
-ul li a{
+.navbar-test .navbar-link a{
     text-decoration: none;
 }
 #logout{
