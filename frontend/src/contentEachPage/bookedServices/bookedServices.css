@@ -1,0 +1,55 @@
+.booked-services-main {
+    padding: 3%
+}
+
+.booked-services-header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    margin-bottom: 3%;
+    color: rgb(164, 129, 216);
+}
+
+.booked-services-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2em;
+    color: darkblue;
+}
+
+.booked-services-paragraph {
+    max-width: 420px;
+}
+
+.booked-services-tasks-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.booked-services-task {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.booked-services-task-image{
+    max-width: 150px;
+    height: auto;
+}
+.book-services-task-title {
+    font-size: 1.2em;
+    color: darkblue;
+}
+
+.book-services-task-employees {
+    color: rgb(234, 130, 71);
+    
+}
+
+.book-services-task-employees-rows {
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+.task-detail-forward-button {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 3px;
+}

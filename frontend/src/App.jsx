@@ -35,8 +35,9 @@ import ExaminerFurniturePage from './pages/examiner/ExaminerFurniture'
 import PricingPage from "./pages/default/PricingPage"
 
 
-import UserAgreement from './pages/UserAgreementPage'
-import StaffDetails from './pages/detailStaffPage'
+import UserAgreementPage from './pages/UserAgreementPage'
+import StaffDetailsPage from './pages/detailStaffPage'
+import BookedServicesPage from './pages/bookedServicesPage'
 
 import { useRecoilValue } from 'recoil'
 import customerAtom from './atom/customerAtom'
@@ -113,12 +114,14 @@ function App() {
         <Route path="/signin" element={customer ? <HomePage /> : <SignIn />} />
         <Route path="/signup" element={customer ? <HomePage /> : <SignUpPage />} />
 
-        {/* <Route path='/agreement' element={customer ? <UserAgreement /> : <HomePage />} /> */}
-        <Route path='/agreement' element={<UserAgreement />} />
+        {/* <Route path='/agreement' element={customer ? <UserAgreementPage /> : <HomePage />} /> */}
+        <Route path='/agreement' element={<UserAgreementPage />} />
 
         {/*kiểm lại thử cái path vô staff này nha */}
-        {/* <Route path='/staffdetails' element={customer ? <StaffDetails /> : <HomePage />} /> */}
-        <Route path='/staffdetails' element={<StaffDetails />} />
+        {/* <Route path='/staffdetails' element={customer ? <StaffDetailsPage /> : <HomePage />} /> */}
+        <Route path='/staffdetails' element={<StaffDetailsPage />} />
+        {/* <Route path="/bookedservices" element={customer ? <BookedServicesPage /> : <HomePage />} /> */}
+        <Route path="/bookedservices" element={<BookedServicesPage />} />
 
 
         {/* staff */}
