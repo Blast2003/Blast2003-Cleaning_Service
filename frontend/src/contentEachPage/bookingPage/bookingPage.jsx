@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { MdOutlineCleaningServices } from "react-icons/md";
 import "./BookingPage.css";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import customerAtom from "../../atom/customerAtom";
 import contractAtom from "../../atom/contractAtom";
 import ErrorLabel from '../../Components/HandleError/ErrorLabel';
@@ -21,7 +21,7 @@ function BookingPage() {
   const [selectedStaff, setSelectedStaff] = useState(null);
 
   const customer = useRecoilValue(customerAtom);
-  const setContract = useSetRecoilState(contractAtom);
+  const [contract, setContract] = useRecoilState(contractAtom);
 
   const services = ["Carpet Cleaning", "Furniture Cleaning", "Wall Washing", "Floor Cleaning"];
   const serviceTypes = ["basic", "pro", "deluxe"];
@@ -32,7 +32,12 @@ function BookingPage() {
       try {
         const res = await fetch("/api/staff/GetAllStaff");
         const data = await res.json();
-        if (data.error) throw new Error(data.error);
+        
+        console.log(data)
+        console.log(contract)
+        if (data.error) {
+          setErrorMessage(data.error)
+        }
         setStaffList(data.map((staff) => ({ id: staff._id, name: staff.name })));
       } catch (error) {
         setErrorMessage(`Error fetching staff list: ${error.message}`);
@@ -90,7 +95,7 @@ function BookingPage() {
       }
       setSelectedStaff({ id: data._id, name: data.name });
       
-      console.log(selectedStaff)
+      // console.log(selectedStaff)
 
     } catch (error) {
       setErrorMessage(`Error fetching staff details: ${error.message}`);
@@ -116,6 +121,7 @@ function BookingPage() {
       });
 
       const data = await res.json();
+
       console.log(data)
       if (data.error){
         setErrorMessage(data.error)
@@ -159,6 +165,7 @@ function BookingPage() {
       });
 
       const contractData = await res.json();
+
       console.log(contractData)
       if (contractData.error){
         setErrorMessage(contractData.error)
