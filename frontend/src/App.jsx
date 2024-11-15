@@ -87,10 +87,12 @@ function App() {
         {/* Customer */}
         <Route path="/signin" element={customer ? <HomePage /> : <SignIn />} />
         <Route path="/signup" element={customer ? <HomePage /> : <SignUpPage />} />
-        <Route path='/agreement' element={customer ? <UserAgreement /> : <HomePage />} />
+        {/* <Route path='/agreement' element={customer ? <UserAgreement /> : <HomePage />} /> */}
+        <Route path='/agreement' element={<UserAgreement />} />
 
         {/*kiểm lại thử cái path vô staff này nha */}
-        <Route path='/staffdetails' element={customer ? <StaffDetails /> : <HomePage />} />
+        {/* <Route path='/staffdetails' element={customer ? <StaffDetails /> : <HomePage />} /> */}
+        <Route path='/staffdetails' element={<StaffDetails />} />
 
 
         {/* staff */}

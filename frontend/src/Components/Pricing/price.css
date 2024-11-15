@@ -47,13 +47,13 @@
     color: #666;
   }
   
-  .custom-plan ul {
+  .custom-plan .custom-plan-ul {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
   }
   
-  .custom-plan ul li {
+  .custom-plan .custom-plan-ul .custom-plan-li {
     margin-bottom: 10px;
   }
   
