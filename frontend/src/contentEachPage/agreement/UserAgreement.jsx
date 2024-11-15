@@ -130,7 +130,7 @@ function UserAgreement() {
               <a href="#paypal-redirect" class="button">
                 Agree
               </a>
-              <a href="#paypal-redirect" class="button">
+              <a href="/staffdetails" class="button">
                 Go back
               </a>
             </p>

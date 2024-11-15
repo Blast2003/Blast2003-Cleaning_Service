@@ -35,6 +35,9 @@ import ExaminerFurniturePage from './pages/examiner/ExaminerFurniture'
 import PricingPage from "./pages/default/PricingPage"
 
 
+import UserAgreement from './pages/UserAgreementPage'
+import StaffDetails from './pages/detailStaffPage'
+
 import { useRecoilValue } from 'recoil'
 import customerAtom from './atom/customerAtom'
 import staffAtom from './atom/staffAtom'
@@ -87,31 +90,59 @@ function App() {
         <Route path='/customer/service/floor' element={customer ? <Floor/> : <Navigate to={"/service/floor"}/>}/>
         <Route path='/customer/service/wall' element={customer ? <Wall/> : <Navigate to={"/service/wall"}/>}/>
         <Route path='/customer/service/furniture' element={customer ? <Furniture/> : <Navigate to={"/service/furniture"}/>}/>
+        <Route path='/' element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path='/aboutUs' element={<AboutPage />} />
+        <Route path='/ourTeam' element={<OurTeamPage />} />
+        <Route path='/service' element={<ServicePage />} />
+        <Route path='/customerApprociate' element={<ApprociatePage />} />
+        <Route path='/booking' element={<Booking />} />
+
+
+        {/* Authentication: Staff + Examiner */}
+        <Route path='/examiner' element={examiner ? <ExaminerPage /> : <SignInExaminer />} />
+        <Route path='/staff' element={staff ? <StaffPage /> : <SignInStaff />} />
+
+        {/* Service + Task Detail */}
+        <Route path='/carpet' element={<Carpet />} />
+        <Route path='/carpetdetail' element={<CarpetNormal />} />
+        <Route path='/floor' element={<Floor />} />
+        <Route path='/floordetail' element={<FloorNormal />} />
+        <Route path='/wall' element={<Wall />} />
+        <Route path='/walldetail' element={<WallNormal />} />
+        <Route path='/furniture' element={<Furniture />} />
+        <Route path='/furnituredetail' element={<FurnitureNormal />} />
 
         {/* Customer */}
-        <Route path="/signin" element={customer ? <Navigate to={"/customer/home"}/> : <SignIn />} />
-        <Route path="/signup" element={customer ? <Navigate to={"/customer/home"} /> : <SignUpPage/>} />
+        <Route path="/signin" element={customer ? <Navigate to={"/customer/home"} /> : <SignIn />} />
+        <Route path="/signup" element={customer ? <Navigate to={"/customer/home"} /> : <SignUpPage />} />
+        {/* <Route path='/agreement' element={customer ? <UserAgreement /> : <HomePage />} /> */}
+        <Route path='/agreement' element={<UserAgreement />} />
+
+        {/*kiểm lại thử cái path vô staff này nha */}
+        {/* <Route path='/staffdetails' element={customer ? <StaffDetails /> : <HomePage />} /> */}
+        <Route path='/staffdetails' element={<StaffDetails />} />
 
 
         {/* staff */}
-        <Route path='/StaffSignin' element={ staff ? <Navigate to={"/staff"}/> : <SignInStaff/>}/>
+        <Route path='/StaffSignin' element={staff ? <Navigate to={"/staff"} /> : <SignInStaff />} />
 
         <Route path='/staff' element={ staff ? <StaffPage/> : <SignInStaff/>} />
 
-        <Route path='/staffcarpet' element={staff ? <StaffCarpetPage/> : <SignInStaff/>}/>
-        <Route path='/stafffloor' element={staff ? <StaffFloorPage/> : <SignInStaff/>}/>
-        <Route path='/staffwall' element={staff ? <StaffWallPage/> : <SignInStaff/>}/>
-        <Route path='/stafffurniture' element={staff ? <StaffFurniturePage/> : <SignInStaff/>}/>
+        <Route path='/staffcarpet' element={staff ? <StaffCarpetPage /> : <SignInStaff />} />
+        <Route path='/stafffloor' element={staff ? <StaffFloorPage /> : <SignInStaff />} />
+        <Route path='/staffwall' element={staff ? <StaffWallPage /> : <SignInStaff />} />
+        <Route path='/stafffurniture' element={staff ? <StaffFurniturePage /> : <SignInStaff />} />
 
         {/* examiner */}
-        <Route path='/ExaminerSignin' element={examiner ? <Navigate to={"/examiner"}/> : <SignInExaminer/>}/>
+        <Route path='/ExaminerSignin' element={examiner ? <Navigate to={"/examiner"} /> : <SignInExaminer />} />
 
         <Route path='/examiner' element={examiner ? <ExaminerPage/> : <SignInExaminer/>}/>
 
-        <Route path='/examinercarpet' element={examiner ? <ExaminerCarpetPage/> : <SignInExaminer/>}/>
-        <Route path='/examinerfloor' element={examiner ? <ExaminerFloorPage/> : <SignInExaminer/>}/>
-        <Route path='/examinerwall' element={examiner ? <ExaminerWallPage/> : <SignInExaminer/>}/>
-        <Route path='/examinerfurniture' element={examiner ? <ExaminerFurniturePage/> : <SignInExaminer/>}/>
+        <Route path='/examinercarpet' element={examiner ? <ExaminerCarpetPage /> : <SignInExaminer />} />
+        <Route path='/examinerfloor' element={examiner ? <ExaminerFloorPage /> : <SignInExaminer />} />
+        <Route path='/examinerwall' element={examiner ? <ExaminerWallPage /> : <SignInExaminer />} />
+        <Route path='/examinerfurniture' element={examiner ? <ExaminerFurniturePage /> : <SignInExaminer />} />
       </Routes>
     </div>
   )

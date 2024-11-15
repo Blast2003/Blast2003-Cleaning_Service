@@ -40,7 +40,7 @@ function detailStaff() {
       </div>
       <br />
 
-      <a href="/useragreement" class="forward-button">
+      <a href="/agreement" class="forward-button">
         Next
       </a>
     </div>

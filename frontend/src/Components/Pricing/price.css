@@ -7,89 +7,72 @@ body {
 }
 
 .custom-pricing-table {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.custom-pricing-table p {
-  font-size: 1.1em;
-  color: #6c757d;
-  margin-bottom: 20px;
-}
-
-.custom-plans {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
-}
-
-.custom-plan {
-  background-color: rgba(0, 122, 255, 0.3); /* 007AFF with 30% opacity */
-  border-radius: 10px;
-  padding: 20px;
-  width: 30%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.custom-plan h3 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
-  color: #007AFF;
-}
-
-.custom-price {
-  font-size: 2.5em;
-  color: #007AFF;
-  margin-bottom: 20px;
-}
-
-.custom-plan p {
-  font-size: 1em;
-  color: #6c757d;
-  margin-bottom: 20px;
-}
-
-.custom-plan ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.custom-plan ul li {
-  font-size: 1em;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.custom-plan ul li::before {
-  content: '✔';
-  color: #007AFF;
-  margin-right: 10px;
-}
-
-.custom-plan .pay-button {
-  background-color: #ff4081;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  align-self: center; /* Align the button horizontally */
-}
-
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  .custom-pricing-table h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-pricing-table p {
+    margin-bottom: 2rem;
+    color: #666;
+  }
+  
+  .custom-plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .custom-plan {
+    background-color: #f3f4ff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-plan h3 {
+    font-size: 1.2rem;
+    color: #7c4dff;
+    margin-bottom: 10px;
+  }
+  
+  .custom-price {
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+  
+  .custom-price span {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .custom-plan .custom-plan-ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .custom-plan .custom-plan-ul .custom-plan-li {
+    margin-bottom: 10px;
+  }
+  
+.pay-button {
+    background-color: #e1bee7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
 .pay-button:hover {
   background-color: #e91e63;
 }
