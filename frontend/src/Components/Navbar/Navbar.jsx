@@ -19,20 +19,20 @@ const Navbar = () => {
       <img src={logo} alt="" className="logo" />
       </a>
 
-      <ul>
-        <li>
+      <ul className="navbar-test">
+        <li className="navbar-link">
           <a href="/home">Home</a>
         </li>
-        <li>
+        <li className="navbar-link">
           <a href="/aboutUs">About Us</a>
-        </li>
-        <li>
+        </li >
+        <li className="navbar-link">
           <a href="/service">Services</a>
         </li>
-        <li>
+        <li className="navbar-link">
           <a href="/ourTeam">Our Team</a>
         </li>
-        <li>
+        <li className="navbar-link">
           <a href="/customerApprociate">Customer Approciate</a>
         </li>
         {customer == null &&(
