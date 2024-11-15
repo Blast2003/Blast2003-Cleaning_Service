@@ -8,19 +8,19 @@ import Task from "../models/taskModel.js"
 export const createContract = async(req, res) =>{
     try {
       
-        const {executionTime, executionDate, ServiceId , StaffName, taskList, participants,  totalPrice} = req.body
+        const { executionDate, ServiceId , StaffName, taskList, participants,  totalPrice} = req.body
         // console.log("name: ", name)
-        if(!executionTime ||  !executionDate || !ServiceId || !StaffName || !taskList || !participants || !totalPrice){
+        if(!executionDate || !ServiceId || !StaffName || !taskList || !participants || !totalPrice){
             return res.status(400).json({
                 error: "Please enter all required fields in create contract"
             })
         }
         
 
-        const contract = await Contract.findOne({ $and: [{executionTime}, {executionDate}] })
+        const contract = await Contract.findOne({ $and: [{StaffName}, {executionDate}] })
         if(contract){
             return res.status(400).json({
-                error: "Contract already exists at this timestamp "
+                error: "The Staff had the contract at that day. Please choose another day."
             })
         }
 
@@ -35,7 +35,6 @@ export const createContract = async(req, res) =>{
 
         // Create new Contract
         const newContract = await Contract ({
-            executionTime,
             executionDate,
             ServiceId,
             ServiceName,

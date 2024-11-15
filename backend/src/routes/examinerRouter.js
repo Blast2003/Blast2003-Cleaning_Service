@@ -1,5 +1,5 @@
 import express from "express";
-import { DeleteExaminerInContract, ExaminerLogin, ExaminerLogout, ExaminerSignup, getContractsByExaminer, getExaminerThroughService, getSpecificExaminer } from "../controllers/examinerController.js";
+import { DeleteExaminerInContract, ExaminerLogin, ExaminerLogout, ExaminerSignup, getContractsByExaminer, getExaminerNameThroughServiceName, getSpecificExaminer } from "../controllers/examinerController.js";
 import { protectRoutesForExaminer } from "../middleware/protectRoutes.js";
 
 const examinerRouter = express.Router();
@@ -10,5 +10,5 @@ examinerRouter.get("/",protectRoutesForExaminer, getSpecificExaminer)
 examinerRouter.post("/logout", ExaminerLogout)
 examinerRouter.get("/getContractsByExaminer", protectRoutesForExaminer, getContractsByExaminer)
 examinerRouter.post("/DeleteExaminerInContract/:ContractId", protectRoutesForExaminer, DeleteExaminerInContract)
-examinerRouter.get("/getExaminerThroughService/:ServiceId", protectRoutesForExaminer, getExaminerThroughService)
+examinerRouter.get("/getExaminerNameThroughServiceName/:ServiceName", getExaminerNameThroughServiceName)
 export default examinerRouter;

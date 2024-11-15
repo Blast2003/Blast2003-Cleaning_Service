@@ -39,6 +39,7 @@ import { useRecoilValue } from 'recoil'
 import customerAtom from './atom/customerAtom'
 import staffAtom from './atom/staffAtom'
 import examinerAtom from './atom/examinerAtom'
+import contractAtom from './atom/contractAtom'
 
 
 function App() {
@@ -46,9 +47,11 @@ function App() {
   const customer = useRecoilValue(customerAtom)
   const staff = useRecoilValue(staffAtom)
   const examiner = useRecoilValue(examinerAtom)
+  const contract = useRecoilValue(contractAtom)
   console.log(customer)
   console.log(staff)
   console.log(examiner)
+  console.log(contract)
 
   return (
     <div>
@@ -62,6 +65,7 @@ function App() {
         <Route path='/ourTeam' element={<OurTeamPage/>}/>
         <Route path='/service' element={<ServicePage/>}/>
         <Route path='/customerApprociate' element={<ApprociatePage/>}/>
+        <Route path='/booking' element={<Booking/>}/>
 
         {/* Service + Task Detail in each service (Default)*/}
         <Route path='/service/carpet' element={<Carpet/>}/>
@@ -76,7 +80,7 @@ function App() {
         <Route path="/customer/ourTeam" element={customer ? <OurTeamPage/> : <Navigate to={"/ourTeam"}/>} />
         <Route path="/customer/customerApprociate" element={customer ? <ApprociatePage/> : <Navigate to={"/customerApprociate"}/>} />
         <Route path='/customer/service' element={customer ? <ServicePage/> : <Navigate to={"/service"}/>}/>
-        <Route path='/customer/booking' element={ customer ? <Booking/> : <SignIn/>}/>
+        <Route path='/customer/booking' element={ customer ? <Booking/> : <Navigate to={"/signin"}/>}/>
         
 
         {/* Service + Task Detail in each service (Customer)*/}

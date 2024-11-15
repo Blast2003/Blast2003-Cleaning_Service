@@ -6,7 +6,7 @@ const staffRouter = express.Router();
 
 staffRouter.post("/signup", StaffSignup)
 staffRouter.post("/login", StaffLogin)
-staffRouter.get("/", protectRoutesForStaff, getSpecificStaff)
+staffRouter.get("/getSpecificStaff/:staffId", getSpecificStaff)
 staffRouter.post("/logout", StaffLogout)
 staffRouter.get("/getContractsByStaff", protectRoutesForStaff, getContractsByStaff)
 staffRouter.post("/DeleteStaffInContract/:ContractId", protectRoutesForStaff, DeleteStaffInContract)

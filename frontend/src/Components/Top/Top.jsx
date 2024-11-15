@@ -14,7 +14,7 @@ const Top = () => {
                 </p>
                 <div className="top-button">
                     <button className="getStart"><a href="/signup">Get Started</a></button>
-                    <button className="howItWork"><a href="/booking">Book Now</a></button>
+                    <button className="howItWork"><a href="/customer/booking">Book Now</a></button>
                 </div>   
             </div>
 
