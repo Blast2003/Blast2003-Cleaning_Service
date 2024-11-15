@@ -167,15 +167,15 @@ export const DeleteExaminerInContract = async (req, res) =>{
     }
 }
 
-export const getExaminerThroughService = async(req, res) =>{
-    const {ServiceId} = req.params
+export const getExaminerNameThroughServiceName = async(req, res) =>{
+    const {ServiceName} = req.params
     try {
-        const service = await Service.findById(ServiceId)
+        const service = await Service.findOne({ServiceName: ServiceName})
         const examiner = await Examiner.findOne({_id: service.examinerId}).select("-password")
 
         if(!examiner) return res.status(400).json({ error: "Examiner not found"})
         
-        return res.status(200).json(examiner)
+        return res.status(200).json(examiner.name)
 
 
     } catch (error) {
@@ -183,3 +183,4 @@ export const getExaminerThroughService = async(req, res) =>{
         return res.status(500).json({ error: error.message });
     }
 }
+

@@ -89,7 +89,7 @@ export const StaffLogin = async (req, res) =>{
 
 
 export const getSpecificStaff = async(req, res) =>{
-    const id = req.staff._id
+    const id = req.params.staffId
     try {
         let staff
         staff = await Staff.findOne({_id: id}).select("-password")
