@@ -65,7 +65,6 @@ function App() {
         <Route path='/ourTeam' element={<OurTeamPage/>}/>
         <Route path='/service' element={<ServicePage/>}/>
         <Route path='/customerApprociate' element={<ApprociatePage/>}/>
-        <Route path='/booking' element={<Booking/>}/>
 
         {/* Service + Task Detail in each service (Default)*/}
         <Route path='/service/carpet' element={<Carpet/>}/>

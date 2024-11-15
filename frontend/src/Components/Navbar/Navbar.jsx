@@ -38,6 +38,7 @@ const Navbar = () => {
           <li><a href="/aboutUs">About Us</a></li>
           <li><a href="/service">Services</a></li>
           <li><a href="/ourTeam">Our Team</a></li>
+          <li><a href="/pricing">Pricing Plans</a></li>
           <li><a href="/customerApprociate">Customer Appreciate</a></li>
           <li><a href="/signin">Sign In</a></li>
         </ul>
@@ -53,6 +54,7 @@ const Navbar = () => {
             <li><a href="/customer/home">Home</a></li>
             <li><a href="/customer/aboutUs">About Us</a></li>
             <li><a href="/customer/service">Services</a></li>
+            <li><a href="/customer/pricing">Pricing Plans</a></li>
             <li><a href="/customer/ourTeam">Our Team</a></li>
             <li><a href="/customer/customerApprociate">Customer Appreciate</a></li>
           </ul>
