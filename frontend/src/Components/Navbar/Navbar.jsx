@@ -33,14 +33,14 @@ const Navbar = () => {
         <a href="/home">
           <img src={logo} alt="logo" className="logo" />
         </a>
-        <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/aboutUs">About Us</a></li>
-          <li><a href="/service">Services</a></li>
-          <li><a href="/ourTeam">Our Team</a></li>
-          <li><a href="/pricing">Pricing Plans</a></li>
-          <li><a href="/customerApprociate">Customer Appreciate</a></li>
-          <li><a href="/signin">Sign In</a></li>
+        <ul className="navbar-test">
+          <li className="navbar-link"><a href="/home">Home</a></li>
+          <li className="navbar-link"><a href="/aboutUs">About Us</a></li>
+          <li className="navbar-link"><a href="/service">Services</a></li>
+          <li className="navbar-link"><a href="/ourTeam">Our Team</a></li>
+          <li className="navbar-link"><a href="/pricing">Pricing Plans</a></li>
+          <li className="navbar-link"><a href="/customerApprociate">Customer Appreciate</a></li>
+          <li className="navbar-link"><a href="/signin">Sign In</a></li>
         </ul>
         </>
       )}
@@ -50,13 +50,13 @@ const Navbar = () => {
           <a href="/customer/home">
             <img src={logo} alt="logo" className="logo" />
           </a>
-          <ul>
-            <li><a href="/customer/home">Home</a></li>
-            <li><a href="/customer/aboutUs">About Us</a></li>
-            <li><a href="/customer/service">Services</a></li>
-            <li><a href="/customer/pricing">Pricing Plans</a></li>
-            <li><a href="/customer/ourTeam">Our Team</a></li>
-            <li><a href="/customer/customerApprociate">Customer Appreciate</a></li>
+          <ul className="navbar-test">
+            <li className="navbar-link"><a href="/customer/home">Home</a></li>
+            <li className="navbar-link"><a href="/customer/aboutUs">About Us</a></li>
+            <li className="navbar-link"><a href="/customer/service">Services</a></li>
+            <li className="navbar-link"><a href="/customer/pricing">Pricing Plans</a></li>
+            <li className="navbar-link"><a href="/customer/ourTeam">Our Team</a></li>
+            <li className="navbar-link"><a href="/customer/customerApprociate">Customer Appreciate</a></li>
           </ul>
           <div className="icon-user">
             <img src={user} alt="user" className="icon-user" />

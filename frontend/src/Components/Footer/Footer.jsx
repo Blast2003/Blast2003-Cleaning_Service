@@ -108,6 +108,7 @@ const Footer = () => {
                     📍123 Main St, Suite 500, HCM City, NY 10001<br/>
                      📞+1 (333) 000-0000</p>
                 </div>
+                <a href="#gosomewhere" class="booked-services-forward">Booked Services</a>
             </div>
             <div className="footer-bottom">
                 <p>COPYRIGHT © 2024 BLAST1 | DESIGN BY PHI + NGUYEN + QUAN</p>
