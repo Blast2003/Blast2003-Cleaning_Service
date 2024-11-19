@@ -1,6 +1,9 @@
 import React from 'react';
 import './wallDetail.css';
-import icon from '../../../assets/iconExaminer.png';
+import dust from '../../../assets/dust.png';
+import washing from '../../../assets/washing.png';
+import rinsing from '../../../assets/rinsing.png';
+import dry from '../../../assets/drying.png';
 import DatePickerTime from '../../../Components/DateTimePicker/datePicker';
 
 function WallDetail(){
@@ -14,7 +17,7 @@ function WallDetail(){
             <div className="wall__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='wall__img'></img>
+                        <img src={dust} alt='' className='wall__img'></img>
                     </tr>
                     <tr>
                         <div className="wall__step-title">Dusting</div>
@@ -35,7 +38,7 @@ function WallDetail(){
             <div className="wall__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='wall__img'></img></td>
+                        <td><img src={washing} alt='' className='wall__img'></img></td>
                     </tr>
                     <tr>
                         <div className="wall__step-title">Washing</div>
@@ -56,7 +59,7 @@ function WallDetail(){
             <div className="wall__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='wall__img'></img>
+                        <img src={rinsing} alt='' className='wall__img'></img>
                     </tr>
                     <tr>
                         <div className="wall__step-title">Rinsing</div>
@@ -77,7 +80,7 @@ function WallDetail(){
             <div className="wall__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='wall__img'></img>
+                        <img src={dry} alt='' className='wall__img'></img>
                     </tr>
                     <tr>
                         <div className="wall__step-title">Drying</div>

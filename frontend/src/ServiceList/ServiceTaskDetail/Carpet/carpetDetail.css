@@ -1,8 +1,7 @@
-c.carpet__container {
+.carpet__container {
     font-family: Arial, sans-serif;
-    padding: 0;
-    margin-bottom: 25px;
-    padding: 25px;
+    padding: 20px;
+    margin-bottom: 27px;
 }
 .carpet__heading{
     text-align: center;
@@ -35,7 +34,7 @@ c.carpet__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 20px;
     color: #666;
 }
   

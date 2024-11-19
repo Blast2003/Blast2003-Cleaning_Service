@@ -44,6 +44,7 @@ import customerAtom from './atom/customerAtom'
 import staffAtom from './atom/staffAtom'
 import examinerAtom from './atom/examinerAtom'
 import contractAtom from './atom/contractAtom'
+import CarpetDetail from './ServiceList/ServiceTaskDetail/Carpet/carpetDetail'
 
 
 function App() {
@@ -60,6 +61,8 @@ function App() {
   return (
     <div>
       <Routes>
+        {/*Test*/}
+        <Route path='/staffhehe' element={<StaffFurniturePage/>}/>
 
         {/* Default Page */}
         <Route path='/' element={<HomePage />} />

@@ -1,6 +1,10 @@
 import React from 'react';
 import './furnitureNormal.css';
-import icon from '../../../assets/iconExaminer.png';
+import dust from '../../../assets/dust.png';
+import vacumm from '../../../assets/vacuum.png';
+import spot from '../../../assets/spot.png';
+import upholstery from '../../../assets/upholstery.png';
+import leather from '../../../assets/leather.png'
 
 function FurnitureNormal(){
   return (
@@ -13,20 +17,20 @@ function FurnitureNormal(){
             <div className="furniture__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='furniture__normal__img'></img>
+                        <img src={dust} alt='' className='furniture__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="furniture__normal__step-title">Dusting</div>
                     </tr>
                     <tr>
-                        <div className="furniture__normal__step-description"> The process of removing dust from surfaces..</div>
+                        <div className="furniture__normal__step-description"> The process of removing dust from surfaces.</div>
                     </tr>
                 </table>
             </div>
             <div className="furniture__normal__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='furniture__normal__img'></img></td>
+                        <td><img src={vacumm} alt='' className='furniture__normal__img'></img></td>
                     </tr>
                     <tr>
                         <div className="furniture__normal__step-title">Vacuuming</div>
@@ -39,7 +43,7 @@ function FurnitureNormal(){
             <div className="furniture__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='furniture__normal__img'></img>
+                        <img src={spot} alt='' className='furniture__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="furniture__normal__step-title">Spot cleaning</div>
@@ -52,7 +56,7 @@ function FurnitureNormal(){
             <div className="furniture__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='furniture__normal__img'></img>
+                        <img src={upholstery} alt='' className='furniture__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="furniture__normal__step-title">Upholstery cleaning</div>
@@ -65,7 +69,7 @@ function FurnitureNormal(){
             <div className="furniture__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='furniture__normal__img'></img>
+                        <img src={leather} alt='' className='furniture__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="furniture__normal__step-title">Leather conditioning</div>

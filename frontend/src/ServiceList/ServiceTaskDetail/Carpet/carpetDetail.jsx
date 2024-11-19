@@ -1,6 +1,10 @@
 import React from 'react';
 import './carpetDetail.css';
-import icon from '../../../assets/iconExaminer.png';
+import vacumm from '../../../assets/vacuum.png';
+import pretreatment from '../../../assets/pre-treatment.png';
+import spot from '../../../assets/spot.png';
+import steam from '../../../assets/steam.png';
+import drying from '../../../assets/drying.png';
 import DatePickerTime from '../../../Components/DateTimePicker/datePicker';
 
 const CarpetDetail = () => {
@@ -14,7 +18,7 @@ const CarpetDetail = () => {
             <div className="carpet__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='carpet__img'></img></td>
+                        <td><img src={vacumm} alt='' className='carpet__img'></img></td>
                     </tr>
                     <tr>
                         <div className="carpet__step-title">Vacuuming</div>
@@ -35,7 +39,7 @@ const CarpetDetail = () => {
             <div className="carpet__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__img'></img>
+                        <img src={pretreatment} alt='' className='carpet__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__step-title">Pre-treatment</div>
@@ -56,7 +60,7 @@ const CarpetDetail = () => {
             <div className="carpet__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__img'></img>
+                        <img src={spot} alt='' className='carpet__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__step-title">Spot cleaning</div>
@@ -77,7 +81,7 @@ const CarpetDetail = () => {
             <div className="carpet__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__img'></img>
+                        <img src={steam} alt='' className='carpet__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__step-title">Deep cleaning</div>
@@ -98,13 +102,13 @@ const CarpetDetail = () => {
             <div className="carpet__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__img'></img>
+                        <img src={drying} alt='' className='carpet__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__step-title">Drying</div>
                     </tr>
                     <tr>
-                        <div className="carpet__step-description">Ensure the staff is completely dry to prevent mold and mildew.</div>
+                        <div className="carpet__step-description">Ensure the carpet is completely dry to prevent mold and mildew.</div>
                     </tr>
                     <tr>
                         <button className="carpet__complete">Complete</button>

@@ -1,19 +1,17 @@
 
 .container {
     font-family: Arial, sans-serif;
-    max-width: 90%;
-    margin-top: 10;
-    padding: 20px;
+    margin: 13px;
 }
 
 .member-list-header {
     text-align: center;
-    margin-bottom: 40px;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .our-staff {
     color: gray;
+    font-size: large;
 }
 
 .meet-staff {
@@ -22,13 +20,12 @@
 
 .cleaning-staff {
     text-align: center;
-    margin-top: 5%;
+    margin-left: 10%;
 }
 
 .staff-members {
     display: flex;
-    justify-content: space-between;
-    
+    gap: 15px;
 }
 
 .staff-member {
@@ -36,17 +33,15 @@
 }
 
 .member-description {
-    background-color: rgb(220, 220, 240);
     text-align: center;
     padding-top: 20px;
     height: 100px;
 }
 
 .member-image {
-    width: 200px;
+    width: 250px;
     height: 250px;
     border-radius: 8px;
-    background-color: rng(153, 102, 204)
 }
 
 

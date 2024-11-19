@@ -1,6 +1,10 @@
 import React from 'react';
 import './FloorDetail.css';
-import icon from '../../../assets/iconExaminer.png';
+import sweeping from '../../../assets/sweeping.png';
+import mapping from '../../../assets/mapping.png';
+import rug from '../../../assets/rug.png';
+import scrubbing from '../../../assets/scrubbing.png';
+import polishing from '../../../assets/polishing.png';
 import DatePickerTime from '../../../Components/DateTimePicker/datePicker';
 
 function FloorDetail(){
@@ -14,7 +18,7 @@ function FloorDetail(){
             <div className="floor__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__img'></img>
+                        <img src={sweeping} alt='' className='floor__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__step-title">Sweeping or Vacuuming</div>
@@ -35,7 +39,7 @@ function FloorDetail(){
             <div className="floor__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='floor__img'></img></td>
+                        <td><img src={mapping} alt='' className='floor__img'></img></td>
                     </tr>
                     <tr>
                         <div className="floor__step-title">Mapping</div>
@@ -56,7 +60,7 @@ function FloorDetail(){
             <div className="floor__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__img'></img>
+                        <img src={scrubbing} alt='' className='floor__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__step-title">Scrubbing</div>
@@ -77,7 +81,7 @@ function FloorDetail(){
             <div className="floor__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__img'></img>
+                        <img src={polishing} alt='' className='floor__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__step-title">Polishing or waxing</div>
@@ -98,7 +102,7 @@ function FloorDetail(){
             <div className="floor__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__img'></img>
+                        <img src={rug} alt='' className='floor__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__step-title">Rug cleaning</div>

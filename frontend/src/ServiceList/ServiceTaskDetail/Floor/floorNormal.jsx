@@ -1,6 +1,10 @@
 import React from 'react';
 import './floorNormal.css';
-import icon from '../../../assets/iconExaminer.png';
+import sweeping from '../../../assets/sweeping.png';
+import mapping from '../../../assets/mapping.png';
+import rug from '../../../assets/rug.png';
+import scrubbing from '../../../assets/scrubbing.png';
+import polishing from '../../../assets/polishing.png';
 
 const FloorNormal = () => {
   return (
@@ -13,7 +17,7 @@ const FloorNormal = () => {
             <div className="floor__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__normal__img'></img>
+                        <img src={sweeping} alt='' className='floor__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__normal__step-title">Sweeping or Vacuuming</div>
@@ -26,7 +30,7 @@ const FloorNormal = () => {
             <div className="floor__normal__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='floor__normal__img'></img></td>
+                        <td><img src={mapping} alt='' className='floor__normal__img'></img></td>
                     </tr>
                     <tr>
                         <div className="floor__normal__step-title">Mapping</div>
@@ -39,7 +43,7 @@ const FloorNormal = () => {
             <div className="floor__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__normal__img'></img>
+                        <img src={scrubbing} alt='' className='floor__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__normal__step-title">Scrubbing</div>
@@ -52,7 +56,7 @@ const FloorNormal = () => {
             <div className="floor__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__normal__img'></img>
+                        <img src={polishing} alt='' className='floor__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__normal__step-title">Polishing or waxing</div>
@@ -65,7 +69,7 @@ const FloorNormal = () => {
             <div className="floor__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='floor__normal__img'></img>
+                        <img src={rug} alt='' className='floor__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="floor__normal__step-title">Rug cleaning</div>

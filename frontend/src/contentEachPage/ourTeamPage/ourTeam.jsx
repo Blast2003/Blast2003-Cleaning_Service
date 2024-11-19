@@ -9,7 +9,6 @@ function OurTeam() {
         <h2 className="meet-staff">Meet Our Cleaning Staff</h2>
       </div>
 
-      <section class="cleaning-staff">
         <div class="staff-members">
           <div class="staff-member">
             <a href="staffdetails">
@@ -67,7 +66,6 @@ function OurTeam() {
             </div>
           </div>
         </div>
-      </section>
     </div>
   );
 }
