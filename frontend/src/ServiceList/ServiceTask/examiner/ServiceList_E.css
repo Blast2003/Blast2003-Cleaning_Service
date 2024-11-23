@@ -1,0 +1,197 @@
+.serviceList {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
+
+.serviceList__title {
+  color: plum;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.serviceList__name {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.serviceList__content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.serviceList__task {
+  margin-top: 15px;
+  margin-left: 5px;
+  width: calc(25% - 20px); /* Ensures 4 items per row with proper gap */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px; /* Increased padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff; /* Added background for better contrast */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.serviceList__task:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.serviceList__img {
+  width: 70px; /* Slightly increased size for better visibility */
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.serviceList__description {
+  margin: 10px 0;
+  text-align: center;
+  color: #555; /* Softer text color */
+  font-size: 14px;
+}
+
+.serviceList__button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: auto;
+  transition: background-color 0.3s;
+}
+
+.serviceList__button:hover {
+  background-color: #45a049;
+}
+
+.serviceList__button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.overall-status__button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 10px;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+.overall-status__button.complete {
+  background-color: green;
+  cursor: pointer;
+}
+
+.overall-status__button.pending {
+  background-color: crimson;
+  cursor: pointer;
+}
+
+.overall-status__button:hover:not(.pending) {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .serviceList__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serviceList__task {
+    width: 90%;
+  }
+
+  .serviceList__img {
+    width: 60px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .serviceList__task {
+    width: calc(33.33% - 20px); /* 3 items per row for tablets */
+  }
+}
+
+.serviceList__task {
+  position: relative; /* Position relative to allow absolute positioning of the delete icon */
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.service__delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.service__delete-icon:hover {
+  color: red; 
+}
+
+.service__execution-date {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  color: #555;
+  background-color: #f8f8f8; /* Light background for contrast */
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.service__overall-status{
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Secondary button style */
+.overall-status__button-secondary {
+  display: block; /* Ensures the button appears */
+  width: 100%; /* Full width to match other buttons */
+  margin-top: 10px; /* Adds spacing from the previous button */
+  padding: 10px 20px; /* Spacing for a clear button size */
+  font-size: 14px; /* Readable text size */
+  text-align: center; /* Centers the text */
+  background-color: #007BFF; /* Blue background for visibility */
+  color: white; /* White text */
+  border: none; /* Removes default border */
+  border-radius: 5px; /* Smooth button edges */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds subtle shadow for depth */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
+}
+
+/* Hover effect for secondary button */
+.overall-status__button-secondary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight enlargement */
+}
+
+/* Ensure visibility */
+.overall-status__button-secondary {
+  opacity: 1; /* Ensure full visibility */
+  z-index: 1; /* Ensure it appears above other elements */
+}
+

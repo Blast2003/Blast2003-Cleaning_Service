@@ -6,6 +6,7 @@ import useLogout from "../../hooks/useLogout";
 import customerAtom from "../../atom/customerAtom";
 import logoutSuccessAtom from "../../atom/logoutSuccessAtom";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const customer = useRecoilValue(customerAtom);
@@ -58,9 +59,12 @@ const Navbar = () => {
             <li className="navbar-link"><a href="/customer/ourTeam">Our Team</a></li>
             <li className="navbar-link"><a href="/customer/customerApprociate">Customer Appreciate</a></li>
           </ul>
-          <div className="icon-user">
-            <img src={user} alt="user" className="icon-user" />
-          </div>
+          <Link to="/customer/updateProfile">
+            <div className="icon-user-wrapper">
+              <img src={user} alt="user" className="icon-user" />
+              <span className="customer-name">{customer.name}</span>
+            </div>
+          </Link>
           <button id="logout" onClick={handleLogout}>
             <h3>Logout</h3>
           </button>

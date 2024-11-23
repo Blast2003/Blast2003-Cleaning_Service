@@ -89,7 +89,7 @@ export const ExaminerLogin = async (req, res) =>{
 }
 
 export const getSpecificExaminer = async(req, res) =>{
-    const id = req.examiner._id
+    const id = req.params.examinerId
     try {
         let examiner
         examiner = await Examiner.findOne({_id: id}).select("-password")
@@ -167,7 +167,7 @@ export const DeleteExaminerInContract = async (req, res) =>{
     }
 }
 
-export const getExaminerNameThroughServiceName = async(req, res) =>{
+export const getExaminerThroughServiceName = async(req, res) =>{
     const {ServiceName} = req.params
     try {
         const service = await Service.findOne({ServiceName: ServiceName})
@@ -175,11 +175,44 @@ export const getExaminerNameThroughServiceName = async(req, res) =>{
 
         if(!examiner) return res.status(400).json({ error: "Examiner not found"})
         
-        return res.status(200).json(examiner.name)
+        return res.status(200).json(examiner)
 
 
     } catch (error) {
         console.log("Error in Get Specific Examiner Information",error.message);
+        return res.status(500).json({ error: error.message });
+    }
+}
+
+export const updateExaminer = async (req, res) =>{
+    const { name, email, password, phone } = req.body;
+
+	const examinerId = req.examiner._id;
+	try {
+		let examiner = await Examiner.findById(examinerId);
+		if (!examiner) return res.status(400).json({ error: "Examiner not found" });
+
+		if (req.params.ExaminerId !== examinerId.toString())
+			return res.status(400).json({ error: "You cannot update other examiner's profile" });
+
+		if (password) {
+			const salt = await bcrypt.genSalt(10);
+			const hashedPassword = await bcrypt.hash(password, salt);
+			examiner.password = hashedPassword;
+		}
+
+		examiner.name = name || examiner.name;
+		examiner.email = email || examiner.email;
+		examiner.phone = phone || examiner.phone;
+
+		examiner = await examiner.save();
+
+        // password should be null in response
+		examiner.password = null;
+
+		res.status(200).json(examiner);
+    } catch (error) {
+        console.log("Error in Update Examiner",error.message);
         return res.status(500).json({ error: error.message });
     }
 }

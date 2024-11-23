@@ -3,13 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { MdOutlineCleaningServices } from "react-icons/md";
 import "./BookingPage.css";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import customerAtom from "../../atom/customerAtom";
 import contractAtom from "../../atom/contractAtom";
 import ErrorLabel from '../../Components/HandleError/ErrorLabel';
+import { useNavigate } from "react-router-dom";
 
 function BookingPage() {
-  const [serviceCreated, setServiceCreated] = useState(null);
+  const [serviceCreated, setServiceCreated] = useState(null); 
   const [selectedService, setSelectedService] = useState("");
   const [serviceType, setServiceType] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
@@ -21,7 +22,10 @@ function BookingPage() {
   const [selectedStaff, setSelectedStaff] = useState(null);
 
   const customer = useRecoilValue(customerAtom);
+  const [staff, setStaff] = useState(null);
+  const [examiner, setExaminer] = useState(null);
   const [contract, setContract] = useRecoilState(contractAtom);
+  const navigate = useNavigate();
 
   const services = ["Carpet Cleaning", "Furniture Cleaning", "Wall Washing", "Floor Cleaning"];
   const serviceTypes = ["basic", "pro", "deluxe"];
@@ -34,25 +38,74 @@ function BookingPage() {
         const data = await res.json();
         
         console.log(data)
-        console.log(contract)
         if (data.error) {
+          console.log("Error detected:", data.error)
           setErrorMessage(data.error)
+          
+          setTimeout(() => {
+            setErrorMessage(null);
+          }, 3000);
+          
+          return
         }
         setStaffList(data.map((staff) => ({ id: staff._id, name: staff.name })));
       } catch (error) {
         setErrorMessage(`Error fetching staff list: ${error.message}`);
+
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
       }
     };
+    
     fetchStaffList();
-  }, []);
+
+    if (selectedStaff?.id) {
+      fetchStaffDetails(selectedStaff.id);
+    }
+    if (serviceCreated?.examinerId) {
+      fetchExaminerDetails(serviceCreated.examinerId);
+    }
+
+
+  }, [selectedStaff, serviceCreated, contract]);
+
+  // Fetch specific staff details
+  const fetchStaffDetails = async (staffId) => {
+    try {
+      const res = await fetch(`/api/staff/getSpecificStaff/${staffId}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch staff details");
+      }
+      const data = await res.json();
+      console.log(data);
+      setStaff(data);
+    } catch (error) {
+      console.error("Error fetching staff details:", error.message);
+    }
+  };
+
+  // Fetch specific examiner details
+  const fetchExaminerDetails = async (examinerId) => {
+    try {
+      const res = await fetch(`/api/examiner/getSpecificExaminer/${examinerId}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch examiner details");
+      }
+      const data = await res.json();
+      console.log(data);
+      setExaminer(data);
+    } catch (error) {
+      console.error("Error fetching examiner details:", error.message);
+    }
+  };
 
   // Fetch service details and examiner name
   const fetchServiceDetails = async (serviceName) => {
-    console.log(serviceName)
     try {
       const [serviceRes, examinerRes] = await Promise.all([
         fetch(`/api/service/getServiceByServiceName/${serviceName}`),
-        fetch(`/api/examiner/getExaminerNameThroughServiceName/${serviceName}`),
+        fetch(`/api/examiner/getExaminerThroughServiceName/${serviceName}`),
       ]);
 
       const serviceData = await serviceRes.json();
@@ -62,14 +115,26 @@ function BookingPage() {
     //   console.log(examinerData)
       if (serviceData.error){
         setErrorMessage(serviceData.error)
+
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
+
+        return
       }
       if (examinerData.error) {
         setErrorMessage(examinerData.error)
+
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
+
+        return
       }
 
       setServiceDescription(serviceData.description);
       setExaminerId(serviceData.examinerId);
-      setExaminerName(examinerData);
+      setExaminerName(examinerData.name);
     } catch (error) {
       setErrorMessage(`Error fetching service details: ${error.message}`);
 
@@ -92,6 +157,12 @@ function BookingPage() {
       const data = await res.json();
       if (data.error){
         setErrorMessage(data.error)
+
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
+
+        return
       }
       setSelectedStaff({ id: data._id, name: data.name });
       
@@ -125,6 +196,12 @@ function BookingPage() {
       console.log(data)
       if (data.error){
         setErrorMessage(data.error)
+
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
+        
+        return
       }
       setServiceCreated(data);
     } catch (error) {
@@ -138,7 +215,7 @@ function BookingPage() {
 
   // Create contract
   const handleCreateContract = async () => {
-    if (!selectedStaff) {
+    if (!staff || !examiner) {
       setErrorMessage("Please select a staff member.");
       return;
     }
@@ -157,7 +234,9 @@ function BookingPage() {
         body: JSON.stringify({
           executionDate: selectedDate?.toLocaleDateString("en-GB"),
           ServiceId: serviceCreated._id,
-          StaffName: selectedStaff.name,
+          Staff: staff, 
+          User: customer, 
+          Examiner: examiner, 
           taskList: taskList.map((task) => task._id),
           participants,
           totalPrice: serviceCreated.price,
@@ -167,13 +246,22 @@ function BookingPage() {
       const contractData = await res.json();
 
       console.log(contractData)
+
       if (contractData.error){
         setErrorMessage(contractData.error)
+        setServiceCreated(null)
+
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
+
+        return
       }
 
       localStorage.setItem("contract-cleanings", JSON.stringify(contractData)); // local storage inside frontend server
       setContract(contractData);
       alert("Contract created successfully!");
+      navigate("/customer/userAgreement")
     } catch (error) {
       setErrorMessage(`Error creating contract: ${error.message}`);
 

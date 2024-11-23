@@ -1,6 +1,6 @@
 import React from "react";
 import ExaminerNavbar from "../../Examiner/examinerNavigation/ExaminerNavBar";
-import Footer from "../../Components/Footer/Footer";
+import FooterE from "../../Components/Footer/FooterE"
 import ExaminerServicesList from "../../ServiceList/ServiceTask/ExaminerServicesList";
 
 function ExaminerPage(){
@@ -8,7 +8,7 @@ function ExaminerPage(){
         <div>
             <ExaminerNavbar/>
             <ExaminerServicesList/>
-            <Footer/>
+            <FooterE/>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../Components/Footer/Footer";
+import FooterS from "../../Components/Footer/FooterS";
 import StaffNavbar from "../../Staff/staffNavbar";
 import StaffServiceList from "../../ServiceList/ServiceTask/StaffServiceList";
 
@@ -8,7 +8,7 @@ function StaffPage(){
         <div>
             <StaffNavbar/>
             <StaffServiceList/>
-            <Footer/>
+            <FooterS/>
         </div>
         
     );

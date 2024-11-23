@@ -1,14 +1,18 @@
 import React from "react";
 import StaffNavbar from "../../Staff/staffNavbar";
-import FurnitureDetail from "../../ServiceList/ServiceTaskDetail/Furniture/furnitureDetail";
-import Footer from "../../Components/Footer/Footer";
+import FurnitureDetail_S from "../../ServiceList/ServiceTaskDetail/Furniture/staff/furnitureDetail_S";
+import FooterS from "../../Components/Footer/FooterS";
+import { useLocation } from "react-router-dom";
 
 function StaffFurniturePage(){
+    const location = useLocation();
+    const { serviceId, examiner, customer, executionTime } = location.state || {};
+
     return(
         <div>
             <StaffNavbar/>
-            <FurnitureDetail/>
-            <Footer/>
+            <FurnitureDetail_S serviceId={serviceId} examiner={examiner} customer={customer} executionTime={executionTime} />
+            <FooterS/>
         </div>
         
     );

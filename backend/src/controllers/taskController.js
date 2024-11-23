@@ -80,3 +80,21 @@ export const completeTask = async(req, res) =>{
         return res.status(500).json({ error: error.message });
     }
 }
+
+export const getTaskNameById = async(req, res) =>{
+    const {taskId} = req.params
+    try {
+        // console.log(id)
+        let task
+        task = await Task.findById(taskId)
+
+        if(!task) return res.status(400).json({ error: "Task in contract not found"})
+        
+        return res.status(200).json(task.TaskName)
+
+
+    } catch (error) {
+        console.log("Error in Get All Task in Specific Service",error.message);
+        return res.status(500).json({ error: error.message });
+    }
+}

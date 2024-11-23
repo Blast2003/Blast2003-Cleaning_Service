@@ -1,36 +1,51 @@
 import Contract from "../models/contractModel.js"
-import User from "../models/userModel.js"
-import Staff from "../models/staffModel.js"
-import Examiner from "../models/examinerModel.js"
+import USER from "../models/userModel.js"
+import STAFF from "../models/staffModel.js"
+import EXAMINER from "../models/examinerModel.js"
 import Service from "../models/serviceModel.js"
 import Task from "../models/taskModel.js"
 
 export const createContract = async(req, res) =>{
     try {
       
-        const { executionDate, ServiceId , StaffName, taskList, participants,  totalPrice} = req.body
+        const { executionDate, ServiceId , Staff, User, Examiner, taskList, participants,  totalPrice} = req.body
         // console.log("name: ", name)
-        if(!executionDate || !ServiceId || !StaffName || !taskList || !participants || !totalPrice){
+        if(!executionDate || !ServiceId  || !taskList || !participants || !totalPrice || !User || !Staff || !Examiner){
             return res.status(400).json({
                 error: "Please enter all required fields in create contract"
             })
         }
-        
 
-        const contract = await Contract.findOne({ $and: [{StaffName}, {executionDate}] })
-        if(contract){
+        const currentDate = new Date();
+        const formattedCurrentDate = currentDate.toLocaleDateString("en-GB");
+
+        // console.log(executionDate)
+        // console.log(formattedCurrentDate)
+
+        // Check if executionDate is in the past
+        if (executionDate <= formattedCurrentDate) {
             return res.status(400).json({
-                error: "The Staff had the contract at that day. Please choose another day."
-            })
+                error: "The execution date must be larger than now. Please choose a valid date."
+            });
         }
-
+        
         //get Service Name
         const service = await Service.findById(ServiceId)
         const ServiceName =  service.ServiceName
 
-        // get Examiner Name
-        const newExaminer = await Examiner.findById(service.examinerId)
-        const ExaminerName = newExaminer.name
+        const contract = await Contract.findOne({ $and: [{ServiceName}, {executionDate}] })
+        if(contract){
+            return res.status(400).json({
+                error: "You has already booked this service at that day. Please choose another day."
+            })
+        }
+
+        const contract1 = await Contract.findOne({ $and: [{"Staff._id": Staff._id}, {executionDate}] })
+        if(contract1){
+            return res.status(400).json({
+                error: "The Staff already has the schedule at that day. Please choose another day."
+            })
+        }
 
 
         // Create new Contract
@@ -38,8 +53,9 @@ export const createContract = async(req, res) =>{
             executionDate,
             ServiceId,
             ServiceName,
-            ExaminerName,
-            StaffName,
+            Staff,
+            User,
+            Examiner,
             taskList,
             participants,
             totalPrice
@@ -54,9 +70,9 @@ export const createContract = async(req, res) =>{
         //console.log(userId, "\n", staffId, "\n" , examinerId, "\n")
 
         //find user, staff and examiner
-        const user = await User.findById(userId)
-        const staff = await Staff.findById(staffId)
-        const examiner = await Examiner.findById(examinerId)
+        const user = await USER.findById(userId)
+        const staff = await STAFF.findById(staffId)
+        const examiner = await EXAMINER.findById(examinerId)
 
         // push contract
         user.contracts.push(newContract._id)
@@ -76,8 +92,9 @@ export const createContract = async(req, res) =>{
             executionDate: newContract.executionDate,
             ServiceId: newContract.serviceId,
             ServiceName: newContract.ServiceName,
-            ExaminerName: newContract.ExaminerName,
-            StaffName: newContract.StaffName,
+            Staff: newContract.Staff,
+            User: newContract.User,
+            Examiner: newContract.Examiner,
             Complete: newContract.Complete,
             taskList: newContract.taskList,
             participants: newContract.participants,
@@ -121,5 +138,44 @@ export const updateContractStatus = async(req, res) =>{
     } catch (error) {
         console.log("Error in Update Contract Status",error.message);
         return res.status(500).json({ error: error.message });
+    }
+}
+
+export const deleteContract = async (req, res) =>{
+    const {contractId} = req.params
+    try {
+        const contract = await Contract.findById(contractId);
+        if(!contract){
+            return res.status(400).json({
+                error: "Contract not found"
+            })
+        }
+
+        const deleteContract = await Contract.findByIdAndDelete(contractId)
+        return res.status(200).json({message: "Delete Contract Successfully", DeletedContract: deleteContract})
+
+    } catch (error) {
+        console.log("Error in Delete Contract", error.message)
+        return res.status(500).json({ error: `Internal Server Error ${error.message}`}) 
+    }
+}
+
+export const getUserByContract = async (req, res) =>{
+    const {contractId} = req.params
+    try {
+        // console.log(contractId)
+        const contract = await Contract.findById(contractId);
+        if(!contract){
+            return res.status(400).json({
+                error: "Contract not found"
+            })
+        }
+
+        const user = await User.findById(contract.participants[0])
+        return res.status(200).json(user)
+
+    } catch (error) {
+        console.log("Error in Get User By Contract", error.message)
+        return res.status(500).json({ error: `Internal Server Error ${error.message}`}) 
     }
 }

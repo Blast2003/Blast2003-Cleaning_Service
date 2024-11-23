@@ -1,16 +1,19 @@
 import React from "react";
 import "./detailStaff.css";
+import { useRecoilValue } from "recoil";
+import customerAtom from "../../atom/customerAtom";
 
-function detailStaff() {
+function DetailStaff() {
+  const customer = useRecoilValue(customerAtom)
   return (
-    <div class="detail-page">
-      <div class="detail-intro">
+    <div className="detail-page">
+      <div className="detail-intro">
         <h5 className="our-staff">⭐Our Staff</h5>
         <h2 className="meet-staff">Meet Our Cleaning Staff</h2>
       </div>
 
-      <div class="staff-member">
-        <div class="staff-choosing-detail">
+      <div className="staff-member">
+        <div className="staff-choosing-detail">
           <img src="http://surl.li/zakygu" alt="" className="member-image" />
           <div className="member-description">
             <h3>James Wang</h3>
@@ -40,11 +43,10 @@ function detailStaff() {
       </div>
       <br />
 
-      <a href="/useragreement" class="forward-button">
-        Next
-      </a>
+      {customer && <a href="/customer/booking" className="forward-button"> Next</a>}
+      
     </div>
   );
 }
 
-export default detailStaff;
+export default DetailStaff;

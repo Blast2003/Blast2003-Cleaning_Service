@@ -24,9 +24,17 @@ const contractSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    StaffName:{
-        type: String, 
-        required: true,
+    Staff: {
+      type: Object, 
+      required: true,
+    },
+    User: {
+      type: Object, 
+      required: true,
+    },
+    Examiner: {
+      type: Object, 
+      required: true,
     },
     Complete:{
         type: Boolean,

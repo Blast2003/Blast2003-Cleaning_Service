@@ -143,14 +143,6 @@ export const getContractsByUser = async (req, res) =>{
         if(!contracts){
             return res.status(400).json({ error: "Contract not found. So can not get the Service."})
         }
-
-        // Fetch services for each contract
-        // const services = await Promise.all(
-        //     contracts.map(async (contract) => {
-        //     const service = await Service.findById(contract.ServiceID);
-        //     return service;
-        //     })
-        // );
   
         // Return all contracts as a response
         return res.status(200).json(contracts);
@@ -177,6 +169,41 @@ export const DeleteUserInContract = async (req, res) =>{
 
     } catch (error) {
         console.log("Error in Delete User in Contract",error.message);
+        return res.status(500).json({ error: error.message });
+    }
+}
+
+
+export const updateUser = async (req, res) =>{
+    const { name, email, password, phone, address } = req.body;
+
+	const userId = req.user._id;
+	try {
+		let user = await User.findById(userId);
+		if (!user) return res.status(400).json({ error: "User not found" });
+
+		if (req.params.id !== userId.toString())
+			return res.status(400).json({ error: "You cannot update other user's profile" });
+
+		if (password) {
+			const salt = await bcrypt.genSalt(10);
+			const hashedPassword = await bcrypt.hash(password, salt);
+			user.password = hashedPassword;
+		}
+
+		user.name = name || user.name;
+		user.email = email || user.email;
+		user.phone = phone || user.phone;
+		user.address = address || user.address;
+
+		user = await user.save();
+
+        // password should be null in response
+		user.password = null;
+
+		res.status(200).json(user);
+    } catch (error) {
+        console.log("Error in Update User",error.message);
         return res.status(500).json({ error: error.message });
     }
 }

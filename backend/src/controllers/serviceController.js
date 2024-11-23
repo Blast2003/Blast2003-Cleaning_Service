@@ -113,3 +113,19 @@ export const getServiceByServiceName = async(req, res) =>{
         return res.status(500).json({ error: error.message });
     }
 }
+
+export const getServiceByServiceId = async(req, res) =>{
+    const {ServiceId} = req.params
+    try {
+        const service = await Service.findById(ServiceId)
+
+        if(!service) return res.status(400).json({ error: "Service not found"})
+        
+        return res.status(200).json(service)
+
+
+    } catch (error) {
+        console.log("Error in Get Specific ExaminerId by Service Name",error.message);
+        return res.status(500).json({ error: error.message });
+    }
+}

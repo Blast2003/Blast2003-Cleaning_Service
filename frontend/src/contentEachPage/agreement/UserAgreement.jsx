@@ -1,138 +1,248 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./UserAgreement.css";
+import { useRecoilState, useRecoilValue } from "recoil";
+import customerAtom from "../../atom/customerAtom";
+import contractAtom from "../../atom/contractAtom";
+import { useNavigate } from "react-router-dom";
 
 function UserAgreement() {
+  const customer = useRecoilValue(customerAtom); 
+  const [contract, setContract] = useRecoilState(contractAtom); 
+
+  const [tasks, setTasks] = useState([]); // Store task names
+  const [examiner, setExaminer] = useState({ name: "", phone: "" }); // Store examiner info
+  const [paymentMethod, setPaymentMethod] = useState(""); // For payment selection
+  const navigate = useNavigate();
+
+  // Fetch task names based on task IDs
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const taskNames = await Promise.all(
+        contract.taskList.map(async (taskId) => {
+          const response = await fetch(`/api/task/getTaskNameById/${taskId}`);
+          const data = await response.json();
+          return data;
+        })
+      );
+      setTasks(taskNames);
+    };
+    fetchTasks();
+  }, [contract.taskList]);
+
+
+  // Fetch examiner info based on service name
+  useEffect(() => {
+    const fetchExaminer = async () => {
+      const response = await fetch(
+        `/api/examiner/getExaminerThroughServiceName/${contract.ServiceName}`
+      );
+      const data = await response.json();
+      // console.log(data)
+      setExaminer({ name: data.name, phone: data.phone });
+    };
+    fetchExaminer();
+  }, [contract.ServiceName]);
+
+
+  // click "Go Back"
+  const handleGoBack = async () => {
+    if (contract) {
+      try {
+        console.log(contract._id)
+        // Call the delete contract API
+        const response = await fetch(`/api/contract/deleteContract/${contract._id}`, {
+          method: "DELETE",
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          console.log(data.message); 
+
+          localStorage.removeItem("contract-cleanings")
+          setContract(null); 
+          navigate("/customer/booking"); 
+        } else {
+          console.error(data.error || "Failed to delete contract");
+          alert("Error: " + (data.error || "Unable to delete the contract"));
+        }
+      } catch (error) {
+        console.error("Error deleting contract:", error);
+        alert(`Error: ${error.message}`);
+      }
+    } else {
+      console.log("No contract to delete");
+      navigate("/customer/booking");
+    }
+  };
+
+  // Handle "Agree" button
+  const handleAgree = async () => {
+    if (!paymentMethod) {
+      alert("Please select a payment method before proceeding.");
+      return;
+    }
+
+    if (paymentMethod === "Cash") {
+      navigate("/customer/booked/service");
+    } else if (paymentMethod === "Paypal") {
+      try {
+        const response = await fetch("/api/purchase/pay", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ totalPrice: contract.totalPrice }),
+        });
+        const data = await response.json();
+
+        if (data.url) {
+          window.location.href = data.url; // Redirect to PayPal approval page
+        } else {
+          alert("Error starting PayPal payment: " + data.message);
+        }
+      } catch (error) {
+        alert("Payment initiation failed: " + error.message);
+      }
+    }
+  };
+
   return (
-    <div class="page">
-      <section class="agreement-content">
+    <div className="page">
+      <section className="agreement-content">
         <h1>Using Services Agreement</h1>
-        <p class="agreement-info">
-          This Using Service Agreement (the "Agreement") is made and entered
-          into by and between [Client Name] ("Client") and [Designer name]
-          ("Examiner").
+        <p className="agreement-info">
+        Read each item carefully and select agree if you have no questions. Otherwise, contact us immediately to change inappropriate items in a timely manner.
         </p>
 
-        <br />
-
         <ol>
-          <li className="test-class" >
-            <p class="section-header">User Details</p>
-            <ul classname="agreement-unordered-list">
-              <li class="ul-list-content">User Name: [Text Input]</li>
-              <li class="ul-list-content">Address: [Text Input]</li>
-              <li class="ul-list-content">Email: [Text Input]</li>
+          {/* 1. User Details */}
+          <li className="test-className">
+            <p className="section-header">User Details</p>
+            <ul className="agreement-unordered-list">
+              <li className="ul-list-content">
+                User Name : {customer.name}
+              </li>
+              <li className="ul-list-content">
+                Address : {customer.address}
+              </li>
+              <li className="ul-list-content">
+                Email : {customer.email}
+              </li>
             </ul>
           </li>
 
-          <li className="test-class">
-            <p class="section-header">Service Selection</p>
-            <p class="list-text">
-              (Allow users to select the services they want, with checkboxes and
-              quantity or size options for custom pricing)
-            </p>
-
-            <ul classname="agreement-unordered-list">
-              <li className="test-class">
-                <p class="list-text">Select Services:</p>
-                <ol class="agreement-ordered-list">
-                  <li class="ul-list-content">[ ] Carpet Cleaning</li>
-                  <li class="ul-list-content">[ ] Furniture Cleaning</li>
-                  <li class="ul-list-content">[ ] Wall Washing</li>
-                  <li class="ul-list-content">[ ] Floor Cleaning</li>
-                  <li class="ul-list-content">[ ] Draperies Cleaning</li>
-                  <li class="ul-list-content">
-                    [ ] Water, Smoke, and Fire Damage Restoration
-                  </li>
-                  <li class="ul-list-content">[ ] Air-Quality Testing</li>
+          {/* 2. Service Selection */}
+          <li className="test-className">
+            <p className="section-header">Service Selection</p>
+            <ul className="agreement-unordered-list">
+              <li className="test-className">
+                <p className="list-text">Selected Services:</p>
+                <ol className="agreement-ordered-list">
+                  <li className="ul-list-content">{contract.ServiceName}</li>
+                </ol>
+                <br />
+                <p className="list-text">Included Tasks:</p>
+                <ol className="agreement-ordered-list">
+                  {tasks.map((task, index) => (
+                    <li key={index} className="ul-list-content">
+                      {task}
+                    </li>
+                  ))}
                 </ol>
               </li>
             </ul>
           </li>
 
-          <li className="test-class">
-            <p class="section-header">Examiner Information</p>
-            <ul classname="agreement-unordered-list">
-              <li class="ul-list-content">
-                Examiner Name: [Dropdown - Auto-populated based on availability]
+          {/* 3. Examiner Information */}
+          <li className="test-className">
+            <p className="section-header">Examiner Information</p>
+            <ul className="agreement-unordered-list">
+              <li className="ul-list-content">
+                Examiner Name: {examiner.name}
               </li>
-              <li class="ul-list-content">
-                Examiner Visit Date: [Date Picker]
+              <li className="ul-list-content">
+                Phone: <span>{examiner.phone}</span>
               </li>
-              <li class="ul-list-content">
-                Time Slot for Examination: [Time Picker]
+              <li className="ul-list-content">
+                Examiner Visit Date: <span>{contract.executionDate}</span>
               </li>
             </ul>
           </li>
 
-          <li className="test-class">
-            <p class="section-header">Scheduling Options</p>
-            <p class="list-text">
-              (This will be filled by the user after the contract examination is
-              completed)
+          {/* 4. Scheduling Options */}
+          <li className="test-className">
+            <p className="section-header">Scheduling Options</p>
+            <ul className="agreement-unordered-list">
+              <li className="ul-list-content">
+                Select Execution Date: {contract.executionDate}
+              </li>
+              <li className="ul-list-content">Execution Time: {contract.executionTime}</li>
+            </ul>
+          </li>
+
+          {/* 5. Contract Details */}
+          <li className="test-className">
+            <p className="section-header">Contract Details</p>
+            <ul className="agreement-unordered-list">
+              <li className="ul-list-content">
+                Responsible Staff: {contract.StaffName}
+              </li>
+              <li className="ul-list-content">
+                Total Estimated Price: ${contract.totalPrice}
+              </li>
+            </ul>
+          </li>
+
+          {/* 6. Payment Information */}
+          <li className="test-className">
+            <p className="section-header">Payment Information</p>
+            <p className="list-text">Deposit Payment Method:</p>
+            <ul className="agreement-unordered-list">
+              <li className="ul-list-content">
+                <input
+                  type="checkbox"
+                  checked={paymentMethod === "Cash"}
+                  onChange={() => setPaymentMethod("Cash")}
+                />{" "}
+                Cash
+              </li>
+              <li className="ul-list-content">
+                <input
+                  type="checkbox"
+                  checked={paymentMethod === "Paypal"}
+                  onChange={() => setPaymentMethod("Paypal")}
+                />{" "}
+                PayPal
+              </li>
+            </ul>
+            <p className="list-text">
+              Final Payment Amount: ${contract.totalPrice}
             </p>
-            <ul classname="agreement-unordered-list">
-              <li class="ul-list-content">
-                Available Execution Dates: [Dropdown of possible dates]
-                (Populated based on examiner report)
-              </li>
-              <li class="ul-list-content">
-                Select Execution Date: [Date Picker]
-              </li>
-              <li class="ul-list-content">Time Slot: [Time Picker]</li>
-            </ul>
           </li>
 
-          <li className="test-class">
-            <p class="section-header">Contract Details</p>
-            <ul classname="agreement-unordered-list">
-              <li class="ul-list-content">
-                Contract Number: [Auto-generated, Non-editable]
-              </li>
-              <li class="ul-list-content">
-                Total Estimated Price: [Auto-calculated based on services
-                selected]
-              </li>
-            </ul>
-          </li>
-
-          <li className="test-class">
-            <p class="section-header">Payment Information</p>
-            <p class="list-text">Deposit Payment Method:</p>
-            <ul classname="agreement-unordered-list">
-              <li class="ul-list-content">[ ] Visa</li>
-              <li class="ul-list-content">[ ] MasterCard</li>
-              <li class="ul-list-content">[ ] Other (Add Payment Option)</li>
-            </ul>
-            <p class="list-text">
-              Final Payment Due: [Auto-calculated, Non-editable]
-            </p>
-          </li>
-
-          <li className="test-class">
-            <p class="section-header">Terms</p>
-            <p class="list-text">
+          <li className="test-className">
+            <p className="section-header">Terms</p>
+            <p className="list-text">
               This Agreement will begin on the date of acceptance and will
               remain in effect until all services have been completed.
             </p>
           </li>
         </ol>
         <br />
-        <section class="agreement-footer">
-          <div class="payment">
+        <section className="agreement-footer">
+          <div className="payment">
             <h3>Total Payment</h3>
-            <p>"[Money]" $</p>
+            <p className="text">{contract.totalPrice} $</p>
           </div>
 
-          <div class="signature">
+          <div className="signature">
             <h3>[✔] I agree to the term & contract</h3>
             <br />
             <p>
-              <a href="#paypal-redirect" class="button">
+              <button className="button" onClick={handleAgree}>
                 Agree
-              </a>
-              <a href="#paypal-redirect" class="button">
-                Go back
-              </a>
+              </button>
+              <button className="button" onClick={handleGoBack}>
+                Go Back
+              </button>
             </p>
           </div>
         </section>

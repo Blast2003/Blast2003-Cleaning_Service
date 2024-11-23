@@ -1,6 +1,6 @@
 import React from 'react';
 import './carpetNormal.css';
-import icon from '../../../assets/iconExaminer.png';
+import icon from '../../../../assets/iconExaminer.png';
 
 const CarpetNormal = () => {
   return (

@@ -182,3 +182,36 @@ export const GetAllStaff = async (req, res) =>{
         return res.status(500).json({ error: error.message });
     }
 }
+
+export const updateStaff = async(req, res) =>{
+    try {
+        const {name, email, password, phone} = req.body;
+        const staffId = req.staff._id;
+
+        let staff = await Staff.findById(staffId);
+        if(!staff) return req.status(400).json({error: "Staff not found"})
+
+        if(req.params.StaffId !== staffId.toString()) return res.status(400).json({ error: "You cannot update other staff's profile" });
+        
+        if(password){
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(password, salt);
+            staff.password = hashedPassword;
+        }
+
+        staff.name = name || staff.name;
+        staff.email = email || staff.email;
+        staff.phone = phone || staff.phone;
+
+        staff = await staff.save();
+
+        staff.password = null;
+
+        res.status(200).json(staff);
+
+
+    } catch (error) {
+        console.log("Error in update staff", error.message)
+        res.status(500).json({error: error.message})
+    }
+}

@@ -23,6 +23,7 @@
     width: 300px;
     border: 1px solid #ccc;
     padding: 20px;
+    justify-items: center;
     margin-bottom: 20px;
     text-align: left;
 }

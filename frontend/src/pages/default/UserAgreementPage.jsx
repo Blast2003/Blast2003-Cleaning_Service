@@ -1,5 +1,5 @@
 import React from "react";
-import UserAgreement from "../contentEachPage/agreement/userAgreement";
+import UserAgreement from "../../contentEachPage/agreement/UserAgreement";
 
 
 function UserAgreementPage() {

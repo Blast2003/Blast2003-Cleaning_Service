@@ -1,6 +1,6 @@
 import React from 'react';
 import './floorNormal.css';
-import icon from '../../../assets/iconExaminer.png';
+import icon from '../../../../assets/iconExaminer.png';
 
 const FloorNormal = () => {
   return (

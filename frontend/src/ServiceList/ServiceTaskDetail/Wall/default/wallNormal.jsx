@@ -1,6 +1,6 @@
 import React from 'react';
 import './wallNormal.css';
-import icon from '../../../assets/iconExaminer.png';
+import icon from '../../../../assets/iconExaminer.png';
 
 function WallNormal(){
   return (

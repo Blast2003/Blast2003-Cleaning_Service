@@ -5,6 +5,7 @@ import staff from '../assets/staff.png'
 import customerAtom from "../atom/customerAtom";
 import { useSetRecoilState } from "recoil";
 import ErrorLabel from '../Components/HandleError/ErrorLabel';
+import { Link } from 'react-router-dom';
 
 function SignIn(){
     // const showToast = userShowToast();
@@ -69,8 +70,8 @@ function SignIn(){
             <div className="or-divider"><span>Or</span></div>
 
             <div className="social-buttons">
-            <button className="social-button staff"><img src={staff} className="signup-img"></img><a href="/StaffSignin">Sign in with Staff</a></button>
-            <button className="social-button examiner"><img src={examiner} className="signup-img"></img><a href="/ExaminerSignin">Sign in with Examiner</a></button>
+            <button className="social-button staff"><img src={staff} className="signup-img"></img><Link to="/StaffSignin">Sign in with Staff</Link></button>
+            <button className="social-button examiner"><img src={examiner} className="signup-img"></img><Link to="/ExaminerSignin">Sign in with Examiner</Link></button>
             </div>
 
             <div className="signup-link">

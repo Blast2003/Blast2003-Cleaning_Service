@@ -1,6 +1,6 @@
 import React from 'react';
 import './furnitureNormal.css';
-import icon from '../../../assets/iconExaminer.png';
+import icon from '../../../../assets/iconExaminer.png';
 
 function FurnitureNormal(){
   return (

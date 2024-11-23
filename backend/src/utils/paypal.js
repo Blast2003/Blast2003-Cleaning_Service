@@ -17,7 +17,7 @@ async function generateAccessToken() {
 }
 
 // Create an order
-export async function createOrder() {
+export async function createOrder(totalPrice) {
     const accessToken = await generateAccessToken();
 
     const res = await axios({
@@ -38,17 +38,17 @@ export async function createOrder() {
                             quantity: 1,
                             unit_amount: {
                                 currency_code: 'USD',
-                                value: '100.00',
+                                value: totalPrice,
                             }
                         }
                     ],
                     amount: {
                         currency_code: 'USD',
-                        value: '100.00',
+                        value: totalPrice,
                         breakdown: {
                             item_total: {
                                 currency_code: 'USD',
-                                value: '100.00',
+                                value: totalPrice,
                             }
                         }
                     }

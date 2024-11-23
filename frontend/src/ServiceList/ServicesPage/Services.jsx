@@ -2,6 +2,10 @@ import React from "react";
 import "./Services.css";
 import { useRecoilValue } from "recoil";
 import customerAtom from "../../atom/customerAtom";
+import carpet from "../../assets/carpet.png";
+import furniture from "../../assets/furniture.png";
+import wall from "../../assets/wall.png";
+import floor from "../../assets/floor.png";
 
 function Services() {
   const customer = useRecoilValue(customerAtom);
@@ -18,7 +22,7 @@ function Services() {
         </div>
         <div className="service-cards">
           <div className="service-card">
-            <img src="http://surl.li/kloccy" alt="" className="service-img" />
+            <img src={carpet} alt="" className="service-img" />
             <h3>Carpet Cleaning</h3><br></br>
             <p>
             Removes dirt and stains from carpets using steam or dry cleaning to refresh and sanitize.
@@ -32,7 +36,7 @@ function Services() {
           </div>
 
           <div className="service-card">
-            <img src="http://surl.li/kloccy" alt="" className="service-img" />
+            <img src={furniture} alt="" className="service-img" />
             <h3>Furniture Cleaning</h3><br></br>
             <p>
             Cleans and removes stains from upholstered furniture, keeping it fresh and hygienic.
@@ -46,7 +50,7 @@ function Services() {
           </div>
 
           <div className="service-card">
-            <img src="http://surl.li/kloccy" alt="" className="service-img" />
+            <img src={wall} alt="" className="service-img" />
             <h3>Wall Washing</h3><br></br>
             <p>
             Cleans walls to remove dirt and grime without damaging paint or wallpaper.
@@ -60,7 +64,7 @@ function Services() {
           </div>
 
           <div className="service-card">
-            <img src="http://surl.li/kloccy" alt="" className="service-img" />
+            <img src={floor} alt="" className="service-img" />
             <h3>Floor Cleaning</h3><br></br>
             <p>
             Sweeps, mops, and polishes various floor types to restore their appearance.
