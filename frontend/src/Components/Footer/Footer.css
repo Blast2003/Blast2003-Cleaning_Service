@@ -53,16 +53,14 @@ a{
 }
 
 .booked-services-forward {
-    position: absolute;
     border-style: solid;
     border-width: 3px;
-    border-radius: 20px;
-    height: 29px;
-    padding: 0px 20px 0 20px;
-    margin-left: 85%;
+    border-radius: 27px;
+    height:50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-right: 5px;
     color:#1B1850;
     background-color: rgb(225, 192, 203);
-    text-align: center;
-    justify-content: center;
-    font-weight: bolder;
 }
