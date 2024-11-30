@@ -1,13 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import './carpetDetail_C.css';
-import icon from '../../../../assets/iconExaminer.png';
 import { FaArrowCircleDown } from "react-icons/fa";
+
+import vacuum from "../../../../assets/vacuum.png";
+import Pre_treatment from "../../../../assets/pre-treatment.png";
+import Spot_cleaning from "../../../../assets/spot.png";
+import Deep_cleaning from "../../../../assets/steam.png";
+import Drying from "../../../../assets/drying.png";
+
 
 function CarpetDetail_C({ serviceId, examiner, staff, executionTime }) {
     const [tasks, setTasks] = useState([]);
 
     const [isDropdownSOpen, setIsDropdownSOpen] = useState(false);
     const [isDropdownEOpen, setIsDropdownEOpen] = useState(false);
+
+    const taskImages = {
+        "Vacuuming": vacuum,
+        "Pre-treatment": Pre_treatment,
+        "Spot cleaning": Spot_cleaning,
+        "Deep cleaning": Deep_cleaning,
+        "Drying": Drying,
+    };
 
     const toggleDropdownS = () => {
         setIsDropdownSOpen((prev) => !prev);
@@ -82,8 +96,8 @@ function CarpetDetail_C({ serviceId, examiner, staff, executionTime }) {
                                 <tr>
                                     <td>
                                         <img 
-                                            src={icon} 
-                                            alt="" 
+                                            src={taskImages[task.TaskName] || vacuum} 
+                                            alt={task.TaskName}
                                             className="carpet__img" 
                                         />
                                     </td>

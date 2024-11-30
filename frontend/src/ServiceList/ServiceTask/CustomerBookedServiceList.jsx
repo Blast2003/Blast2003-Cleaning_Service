@@ -6,10 +6,13 @@ import wall from "../../assets/wall.png";
 import floor from "../../assets/floor.png";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
+import { useSetRecoilState } from "recoil";
+import contractAtom from "../../atom/contractAtom";
 
 function CustomerBookedServiceList() {
     const [services, setServices] = useState([]);
     const [taskStatuses, setTaskStatuses] = useState({});
+    const setContract = useSetRecoilState(contractAtom)
 
     // Predefined image mapping for services
     const serviceImages = {
@@ -127,7 +130,9 @@ function CustomerBookedServiceList() {
 
     useEffect(() => {
         fetchContractsAndServices();
-    }, []);
+        localStorage.removeItem("contract-cleanings")
+        setContract(null); 
+    }, [setContract]);
 
     return (
         <div className="serviceList__content">

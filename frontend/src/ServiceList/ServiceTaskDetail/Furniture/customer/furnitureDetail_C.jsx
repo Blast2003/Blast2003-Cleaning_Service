@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import './furnitureDetail_C.css';
-import icon from '../../../../assets/iconExaminer.png';
+
 import { FaArrowCircleDown } from "react-icons/fa";
+import Leather_conditioning from '../../../../assets/leather.png';
+import Dusting from '../../../../assets/dust.png';
+import Vacuuming from '../../../../assets/vacuum.png';
+import Spot_cleaning from '../../../../assets/spot.png';
+import Upholstery_cleaning from '../../../../assets/upholstery.png';
 
 function FurnitureDetail_C({serviceId, examiner, staff, executionTime}) {
     const [tasks, setTasks] = useState([]);
     const [isDropdownSOpen, setIsDropdownSOpen] = useState(false);
     const [isDropdownEOpen, setIsDropdownEOpen] = useState(false);
+
+    const taskImages = {
+        "Dusting": Dusting,
+        "Vacuuming": Vacuuming,
+        "Spot cleaning": Spot_cleaning,
+        "Upholstery cleaning": Upholstery_cleaning,
+        "Leather conditioning": Leather_conditioning,
+    };
 
     const toggleDropdownS = () => {
         setIsDropdownSOpen((prev) => !prev);
@@ -82,8 +95,8 @@ function FurnitureDetail_C({serviceId, examiner, staff, executionTime}) {
                                 <tr>
                                     <td>
                                         <img 
-                                            src={icon} 
-                                            alt="" 
+                                            src={taskImages[task.TaskName] || Vacuuming} 
+                                            alt={task.TaskName}
                                             className="furniture__img" 
                                         />
                                     </td>

@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './wallDetail_S.css';
-import icon from '../../../../assets/iconExaminer.png';
+
 import { FaArrowCircleDown } from "react-icons/fa";
+
+import dust from '../../../../assets/dust.png';
+import washing from '../../../../assets/washing.png';
+import rinsing from '../../../../assets/rinsing.png';
+import dry from '../../../../assets/drying.png';
 
 function WallDetail_S({ serviceId, examiner, customer, executionTime }) {
     const [tasks, setTasks] = useState([]);
     const [isDropdownCOpen, setIsDropdownCOpen] = useState(false);
     const [isDropdownEOpen, setIsDropdownEOpen] = useState(false);
+
+    const taskImages = {
+        "Dusting": dust,
+        "Washing": washing,
+        "Rinsing": rinsing,
+        "Drying": dry,
+    };
 
     const toggleDropdownC = () => {
         setIsDropdownCOpen((prev) => !prev);
@@ -105,8 +117,8 @@ function WallDetail_S({ serviceId, examiner, customer, executionTime }) {
                                 <tr>
                                     <td>
                                         <img 
-                                            src={icon} 
-                                            alt="" 
+                                            src={taskImages[task.TaskName] || dust} 
+                                            alt= {task.TaskName} 
                                             className="wall__img" 
                                         />
                                     </td>

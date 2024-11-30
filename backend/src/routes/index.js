@@ -1,5 +1,6 @@
 import contractRouter from "./contractRouter.js"
 import examinerRouter from "./examinerRouter.js"
+import mailRouter from "./mailRouter.js"
 import purchaseRouter from "./purchaseRouter.js"
 import serviceRouter from "./serviceRouter.js"
 import staffRouter from "./staffRouter.js"
@@ -15,4 +16,5 @@ export const router = (app) =>{
     app.use("/api/service", serviceRouter)
     app.use("/api/task", taskRouter)
     app.use("/api/purchase", purchaseRouter)
+    app.use("/api/mail", mailRouter)
 }

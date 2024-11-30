@@ -2,11 +2,24 @@ import React, { useEffect, useState } from 'react';
 import './FloorDetail_C.css';
 import icon from '../../../../assets/iconExaminer.png';
 import { FaArrowCircleDown } from "react-icons/fa";
+import sweeping from '../../../../assets/sweeping.png';
+import mapping from '../../../../assets/mapping.png';
+import rug from '../../../../assets/rug.png';
+import scrubbing from '../../../../assets/scrubbing.png';
+import polishing from '../../../../assets/polishing.png';
 
 function FloorDetail_C({ serviceId, examiner, staff, executionTime }) {
     const [tasks, setTasks] = useState([]);
     const [isDropdownSOpen, setIsDropdownSOpen] = useState(false);
     const [isDropdownEOpen, setIsDropdownEOpen] = useState(false);
+
+    const taskImages = {
+        "Sweeping or vacuuming": sweeping,
+        "Mopping": mapping,
+        "Rug cleaning": rug,
+        "Scrubbing": scrubbing,
+        "Polishing": polishing,
+    };
 
     const toggleDropdownS = () => {
         setIsDropdownSOpen((prev) => !prev);
@@ -83,8 +96,8 @@ function FloorDetail_C({ serviceId, examiner, staff, executionTime }) {
                                 <tr>
                                     <td>
                                         <img 
-                                            src={icon} 
-                                            alt="" 
+                                            src={taskImages[task.TaskName] || sweeping} 
+                                            alt= {task.TaskName}
                                             className="floor__img" 
                                         />
                                     </td>

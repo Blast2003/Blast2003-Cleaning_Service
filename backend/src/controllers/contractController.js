@@ -17,13 +17,13 @@ export const createContract = async(req, res) =>{
         }
 
         const currentDate = new Date();
-        const formattedCurrentDate = currentDate.toLocaleDateString("en-GB");
 
-        // console.log(executionDate)
-        // console.log(formattedCurrentDate)
+        // 01/12/2004
+        const [executionDay, executionMonth, executionYear] = executionDate.split("/").map(Number);
+        const parsedExecutionDate = new Date(executionYear, executionMonth - 1, executionDay);
 
         // Check if executionDate is in the past
-        if (executionDate <= formattedCurrentDate) {
+        if (parsedExecutionDate <= currentDate) {
             return res.status(400).json({
                 error: "The execution date must be larger than now. Please choose a valid date."
             });

@@ -1,6 +1,11 @@
 import React from 'react';
 import './carpetNormal.css';
-import icon from '../../../../assets/iconExaminer.png';
+import vacuum from "../../../../assets/vacuum.png";
+import Pre_treatment from "../../../../assets/pre-treatment.png";
+import Spot_cleaning from "../../../../assets/spot.png";
+import Deep_cleaning from "../../../../assets/steam.png";
+import Drying from "../../../../assets/drying.png";
+
 
 const CarpetNormal = () => {
   return (
@@ -13,7 +18,7 @@ const CarpetNormal = () => {
             <div className="carpet__normal__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='carpet__normal__img'></img></td>
+                        <td><img src={vacuum} alt='' className='carpet__normal__img'></img></td>
                     </tr>
                     <tr>
                         <div className="carpet__normal__step-title">Vacuuming</div>
@@ -26,7 +31,7 @@ const CarpetNormal = () => {
             <div className="carpet__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__normal__img'></img>
+                        <img src={Pre_treatment} alt='' className='carpet__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__normal__step-title">Pre-treatment</div>
@@ -39,7 +44,7 @@ const CarpetNormal = () => {
             <div className="carpet__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__normal__img'></img>
+                        <img src={Spot_cleaning} alt='' className='carpet__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__normal__step-title">Spot cleaning</div>
@@ -52,7 +57,7 @@ const CarpetNormal = () => {
             <div className="carpet__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__normal__img'></img>
+                        <img src={Deep_cleaning} alt='' className='carpet__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__normal__step-title">Deep cleaning</div>
@@ -65,7 +70,7 @@ const CarpetNormal = () => {
             <div className="carpet__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='carpet__normal__img'></img>
+                        <img src={Drying} alt='' className='carpet__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="carpet__normal__step-title">Drying</div>

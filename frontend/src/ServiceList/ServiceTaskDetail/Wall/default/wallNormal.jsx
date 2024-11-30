@@ -1,6 +1,9 @@
 import React from 'react';
 import './wallNormal.css';
-import icon from '../../../../assets/iconExaminer.png';
+import dust from '../../../../assets/dust.png';
+import washing from '../../../../assets/washing.png';
+import rinsing from '../../../../assets/rinsing.png';
+import dry from '../../../../assets/drying.png';
 
 function WallNormal(){
   return (
@@ -13,7 +16,7 @@ function WallNormal(){
             <div className="wall__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='wall__normal__img'></img>
+                        <img src={dust} alt='' className='wall__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="wall__normal__step-title">Dusting</div>
@@ -26,7 +29,7 @@ function WallNormal(){
             <div className="wall__normal__step">
                 <table>
                     <tr>
-                        <td><img src={icon} alt='' className='wall__normal__img'></img></td>
+                        <td><img src={washing} alt='' className='wall__normal__img'></img></td>
                     </tr>
                     <tr>
                         <div className="wall__normal__step-title">Washing</div>
@@ -39,7 +42,7 @@ function WallNormal(){
             <div className="wall__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='wall__normal__img'></img>
+                        <img src={rinsing} alt='' className='wall__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="wall__normal__step-title">Rinsing</div>
@@ -52,7 +55,7 @@ function WallNormal(){
             <div className="wall__normal__step">
                 <table>
                     <tr>
-                        <img src={icon} alt='' className='wall__normal__img'></img>
+                        <img src={dry} alt='' className='wall__normal__img'></img>
                     </tr>
                     <tr>
                         <div className="wall__normal__step-title">Drying</div>

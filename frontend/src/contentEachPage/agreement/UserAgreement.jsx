@@ -10,7 +10,7 @@ function UserAgreement() {
   const [contract, setContract] = useRecoilState(contractAtom); 
 
   const [tasks, setTasks] = useState([]); // Store task names
-  const [examiner, setExaminer] = useState({ name: "", phone: "" }); // Store examiner info
+  const [examiner, setExaminer] = useState({ name: "", phone: "", email: "" }); // Store examiner info
   const [paymentMethod, setPaymentMethod] = useState(""); // For payment selection
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ function UserAgreement() {
       );
       const data = await response.json();
       // console.log(data)
-      setExaminer({ name: data.name, phone: data.phone });
+      setExaminer({ name: data.name, phone: data.phone, email: data.email });
     };
     fetchExaminer();
   }, [contract.ServiceName]);
@@ -82,7 +82,167 @@ function UserAgreement() {
       return;
     }
 
+    // Select the checkboxes
+    const cashCheckbox = document.querySelector(
+      '.agreement-unordered-list input[type="checkbox"][checked]'
+    );
+    const paypalCheckbox = document.querySelector(
+      '.agreement-unordered-list input[type="checkbox"][checked]'
+    );
+
+    // Update the `checked` attribute in the DOM to reflect the current state
+    cashCheckbox.checked = paymentMethod === "Cash";
+    paypalCheckbox.checked = paymentMethod === "Paypal";
+
+    // remove button
+    const buttonsParent = document.querySelector(".page .signature p");
+
+    // DOM = programming interface for web documents
+    // Remove the <p> tag with buttons from the DOM
+    if (buttonsParent) {
+      buttonsParent.remove();
+    }
+
+    // capture the entities UserAgreeMent in form of HTML
+    let emailContent = document.querySelector(".page").outerHTML; 
+
+    // add css to EmailContent
+    const cssStyles = `
+      .agreement-content {
+        font-family: Arial, sans-serif;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: 15%;
+        margin-right: 15%;
+        border-style: solid;
+        border-width: 2px;
+        padding: 40px;
+      }
+
+      .agreement-info {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1em;
+        color: black;
+      }
+
+      .agreement-footer{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2em;
+      }
+
+      .section-header {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.4em;
+        color: black;
+      }
+
+      .agreement-ordered-list{
+        display: flex;
+        flex-direction: column;
+        list-style-type:decimal;
+        margin-left: 0%;
+        text-align: left;
+      }
+
+      .agreement-unordered-list{
+        display: flex;
+        flex-direction: column;
+        list-style-type:disc;
+        margin:0;
+        text-align: left;
+      }
+
+      .ul-list-content {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 0.8em;
+        color: black;
+        display: list-item;
+      }
+
+      .list-text {
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1em;
+      }
+
+      .button {
+        margin-left: 50px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        border-style: solid;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      .test-class {
+        margin-left:0px;
+      }
+
+      .test-className{
+        margin-top: 20px;
+      }
+
+      .text{
+        margin-top: 10px;
+        text-align: center;
+        font-size: 30px;
+      }
+    `;
+
+    // Inject the CSS styles into the <head> of the email content
+    emailContent = `
+      <html>
+        <head>
+          <style>${cssStyles}</style>
+        </head>
+        <body>
+          ${emailContent}
+        </body>
+      </html>
+    `;
+
+
     if (paymentMethod === "Cash") {
+      try {
+        const response = await fetch("/api/mail/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            User: {
+              email: customer.email,
+            },
+            Examiner: {
+              email: examiner.email,
+            },
+            emailContent,
+          }),
+        });
+    
+        const data = await response.json();
+    
+        if (!response.ok) {
+          console.log("Failed to send email")
+          throw new Error(data.error || "Failed to send email.");
+        }
+        console.log("Email sent successfully!", data);
+        
+      } catch (error) {
+        alert("Failed to send email: " + error.message);
+      }
+
       navigate("/customer/booked/service");
     } else if (paymentMethod === "Paypal") {
       try {
@@ -95,6 +255,35 @@ function UserAgreement() {
 
         if (data.url) {
           window.location.href = data.url; // Redirect to PayPal approval page
+
+          try {
+            const response = await fetch("/api/mail/create", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                User: {
+                  email: customer.email,
+                },
+                Examiner: {
+                  email: examiner.email,
+                },
+                emailContent,
+              }),
+            });
+        
+            const data = await response.json();
+        
+            if (!response.ok) {
+              console.log("Failed to send email")
+              throw new Error(data.error || "Failed to send email.");
+            }
+            console.log("Email sent successfully!", data);
+            
+          } catch (error) {
+            alert("Failed to send email: " + error.message);
+          }
+        
+
         } else {
           alert("Error starting PayPal payment: " + data.message);
         }

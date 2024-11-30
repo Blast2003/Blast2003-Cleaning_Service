@@ -9,5 +9,7 @@ export const Variables = {
     PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
     PAYPAL_SECRET: process.env.PAYPAL_SECRET,
     PAYPAL_BASE_URL: process.env.PAYPAL_BASE_URL,
-    BASE_URL: process.env.BASE_URL
+    BASE_URL: process.env.BASE_URL,
+    EMAIL: process.env.EMAIL,
+    EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
 }
