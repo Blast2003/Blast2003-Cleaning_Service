@@ -63,6 +63,10 @@ a{
     padding-right: 15px;
     padding-top: 5px;
     padding-right: 5px;
+
     color:#1B1850;
     background-color: rgb(225, 192, 203);
+    text-align: center;
+    justify-content: center;
+    font-weight: bolder;
 }
