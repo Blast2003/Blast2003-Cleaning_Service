@@ -36,7 +36,12 @@ import PricingPage from "./pages/default/PricingPage"
 
 
 import UserAgreementPage from './pages/UserAgreementPage'
-import StaffDetailsPage from './pages/detailStaffPage'
+
+import StaffDetailsPage1 from './pages/staffDetails/detailStaffPage1'
+import StaffDetailsPage2 from './pages/staffDetails/detailStaffPage2'
+import StaffDetailsPage3 from './pages/staffDetails/detailStaffPage3'
+import StaffDetailsPage4 from './pages/staffDetails/detailStaffPage4'
+
 import BookedServicesPage from './pages/bookedServicesPage'
 
 import { useRecoilValue } from 'recoil'
@@ -62,7 +67,7 @@ function App() {
     <div>
       <Routes>
         {/*Test*/}
-        <Route path='/staffhehe' element={<StaffFurniturePage/>}/>
+        <Route path='/staffhehe' element={<StaffFurniturePage />} />
 
         {/* Default Page */}
         <Route path='/' element={<HomePage />} />
@@ -120,9 +125,12 @@ function App() {
         {/* <Route path='/agreement' element={customer ? <UserAgreementPage /> : <HomePage />} /> */}
         <Route path='/agreement' element={<UserAgreementPage />} />
 
-        {/*kiểm lại thử cái path vô staff này nha */}
         {/* <Route path='/staffdetails' element={customer ? <StaffDetailsPage /> : <HomePage />} /> */}
-        <Route path='/staffdetails' element={<StaffDetailsPage />} />
+        <Route path='/staffdetails1' element={<StaffDetailsPage1 />} />
+        <Route path='/staffdetails2' element={<StaffDetailsPage2 />} />
+        <Route path='/staffdetails3' element={<StaffDetailsPage3 />} />
+        <Route path='/staffdetails4' element={<StaffDetailsPage4 />} />
+
         {/* <Route path="/bookedservices" element={customer ? <BookedServicesPage /> : <HomePage />} /> */}
         <Route path="/bookedservices" element={<BookedServicesPage />} />
 

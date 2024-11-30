@@ -1,5 +1,6 @@
 import React from "react";
 import "./detailStaff.css";
+import staff1 from "../../assets/staff1.png";
 
 function detailStaff() {
   return (
@@ -11,7 +12,7 @@ function detailStaff() {
 
       <div class="staff-member">
         <div class="staff-choosing-detail">
-          <img src="http://surl.li/zakygu" alt="" className="member-image" />
+          <img src={staff1} alt="" className="member-image" />
           <div className="member-description">
             <h3>James Wang</h3>
             <p>Cleaning Supervisor</p>
