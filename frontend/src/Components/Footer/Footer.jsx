@@ -48,13 +48,13 @@ const Footer = () => {
                         {customer&&(
                             <>
                             <tr>
-                                <td style={{color: 'white'}}><a href="/customer/home">Home</a></td>
+                                <td style={{color: 'white'}}><a href="/customer/home" className="service-link">Home</a></td>
                             </tr>
                             <tr>
-                                <td style={{color: 'white'}}><a href="/customer/aboutUs">About Us</a></td>
+                                <td style={{color: 'white'}}><a href="/customer/aboutUs" className="service-link">About Us</a></td>
                             </tr>
                             <tr>
-                                <td style={{color: 'white'}}><a href="/customer/service">Our Services</a></td>
+                                <td style={{color: 'white'}}><a href="/customer/service" className="service-link">Our Services</a></td>
                             </tr>
                             </>
                         )}
@@ -62,13 +62,13 @@ const Footer = () => {
                         {customer == null &&(
                             <>
                             <tr>
-                                <td style={{color: 'white'}}><a href="/home">Home</a></td>
+                                <td style={{color: 'white'}}><a href="/home" className="service-link">Home</a></td>
                             </tr>
                             <tr>
-                                <td style={{color: 'white'}}><a href="/aboutUs">About Us</a></td>
+                                <td style={{color: 'white'}}><a href="/aboutUs" className="service-link">About Us</a></td>
                             </tr>
                             <tr>
-                                <td style={{color: 'white'}}><a href="/service">Our Services</a></td>
+                                <td style={{color: 'white'}}><a href="/service" className="service-link">Our Services</a></td>
                             </tr>
                             </>
                         )}
@@ -81,22 +81,22 @@ const Footer = () => {
                             <>
                             <tr>
                                 <td>
-                                    <a href="/service/carpet">Carpet Cleaning</a>
+                                    <a href="/service/carpet" className="service-link">Carpet Cleaning</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/service/floor">Furniture Cleaning</a>
+                                    <a href="/service/floor" className="service-link">Furniture Cleaning</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/service/wall">Wall washing</a>
+                                    <a href="/service/wall" className="service-link">Wall washing</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/service/furniture">Floor Cleaning</a>
+                                    <a href="/service/furniture" className="service-link">Floor Cleaning</a>
                                 </td>
                             </tr>
                             </>
@@ -106,22 +106,22 @@ const Footer = () => {
                             <>
                             <tr>
                                 <td>
-                                    <a href="/customer/service/carpet">Carpet Cleaning</a>
+                                    <a href="/customer/service/carpet" className="service-link">Carpet Cleaning</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/customer/service/floor">Furniture Cleaning</a>
+                                    <a href="/customer/service/floor" className="service-link">Furniture Cleaning</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/customer/service/wall">Wall washing</a>
+                                    <a href="/customer/service/wall" className="service-link">Wall washing</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="/customer/service/furniture">Floor Cleaning</a>
+                                    <a href="/customer/service/furniture" className="service-link">Floor Cleaning</a>
                                 </td>
                             </tr>
                             </>

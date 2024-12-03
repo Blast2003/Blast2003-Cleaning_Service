@@ -9,6 +9,10 @@ export const createContract = async(req, res) =>{
     try {
       
         const { executionDate, ServiceId , Staff, User, Examiner, taskList, participants,  totalPrice} = req.body
+
+
+
+
         // console.log("name: ", name)
         if(!executionDate || !ServiceId  || !taskList || !participants || !totalPrice || !User || !Staff || !Examiner){
             return res.status(400).json({
@@ -22,6 +26,15 @@ export const createContract = async(req, res) =>{
         const [executionDay, executionMonth, executionYear] = executionDate.split("/").map(Number);
         const parsedExecutionDate = new Date(executionYear, executionMonth - 1, executionDay);
 
+        // Before creating the new contract, check for contracts with empty participants and delete them
+        const contractsToDelete = await Contract.find({ participants: { $size: 0 } });
+        // console.log(contractsToDelete)
+        if (contractsToDelete.length > 0) {
+            await Contract.deleteMany({ participants: { $size: 0 } });
+            console.log("Deleted contracts with empty participants.");
+        }
+
+
         // Check if executionDate is in the past
         if (parsedExecutionDate <= currentDate) {
             return res.status(400).json({
@@ -33,7 +46,7 @@ export const createContract = async(req, res) =>{
         const service = await Service.findById(ServiceId)
         const ServiceName =  service.ServiceName
 
-        const contract = await Contract.findOne({ $and: [{ServiceName}, {executionDate}] })
+        const contract = await Contract.findOne({ $and: [{ServiceName}, {executionDate}, {"User._id": User._id}] })
         if(contract){
             return res.status(400).json({
                 error: "You has already booked this service at that day. Please choose another day."
@@ -46,7 +59,6 @@ export const createContract = async(req, res) =>{
                 error: "The Staff already has the schedule at that day. Please choose another day."
             })
         }
-
 
         // Create new Contract
         const newContract = await Contract ({

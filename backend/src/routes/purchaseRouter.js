@@ -29,7 +29,7 @@ purchaseRouter.get("/complete-order", async (req, res) =>{
     try {
         const capture = await capturePayment(req.query.token)
         console.log(capture)
-        res.redirect("http://localhost:4000/customer/booked/service")
+        res.redirect("http://localhost:4000/customer/booked/service?successMessage=Contract%20email%20has%20been%20sent%20to%20your%20email.")
     } catch (error) {
         res.send('Error: ' + error)
     }

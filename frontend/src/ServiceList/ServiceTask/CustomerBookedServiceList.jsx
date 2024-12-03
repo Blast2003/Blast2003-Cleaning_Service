@@ -9,10 +9,11 @@ import { MdDeleteForever } from "react-icons/md";
 import { useSetRecoilState } from "recoil";
 import contractAtom from "../../atom/contractAtom";
 
-function CustomerBookedServiceList() {
+function CustomerBookedServiceList({successMessage}) {
     const [services, setServices] = useState([]);
     const [taskStatuses, setTaskStatuses] = useState({});
-    const setContract = useSetRecoilState(contractAtom)
+    const setContract = useSetRecoilState(contractAtom);
+    const [showMessage, setShowMessage] = useState(false);
 
     // Predefined image mapping for services
     const serviceImages = {
@@ -132,9 +133,35 @@ function CustomerBookedServiceList() {
         fetchContractsAndServices();
         localStorage.removeItem("contract-cleanings")
         setContract(null); 
-    }, [setContract]);
 
-    return (
+        if (successMessage) {
+            setShowMessage(true);
+            const timer = setTimeout(() => setShowMessage(false), 5000); 
+            return () => clearTimeout(timer); 
+          }
+
+    }, [setContract, successMessage]);
+
+    return (    
+    <div>
+      {showMessage && (
+            <div
+            style={{
+                position: "fixed",
+                top: "20px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                backgroundColor: "#4caf50",
+                color: "white",
+                padding: "10px 20px",
+                borderRadius: "5px",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                zIndex: 1000,
+            }}
+            >
+            {successMessage}
+            </div>
+      )}
         <div className="serviceList__content">
             {services.map((service, index) => (
                 <div key={index} className="serviceList__task">
@@ -180,6 +207,7 @@ function CustomerBookedServiceList() {
                 </div>
             ))}
         </div>
+    </div>
     );
 }
 

@@ -84,15 +84,30 @@ function UserAgreement() {
 
     // Select the checkboxes
     const cashCheckbox = document.querySelector(
-      '.agreement-unordered-list input[type="checkbox"][checked]'
+      '.agreement-unordered-list input[type="checkbox"][value="Cash"]'
     );
     const paypalCheckbox = document.querySelector(
-      '.agreement-unordered-list input[type="checkbox"][checked]'
+      '.agreement-unordered-list input[type="checkbox"][value="Paypal"]'
     );
 
-    // Update the `checked` attribute in the DOM to reflect the current state
-    cashCheckbox.checked = paymentMethod === "Cash";
-    paypalCheckbox.checked = paymentMethod === "Paypal";
+    if (cashCheckbox && paypalCheckbox) {
+      // Modify the checkbox HTML based on checked state
+      const cashLabel = cashCheckbox.closest('.ul-list-content');
+      const paypalLabel = paypalCheckbox.closest('.ul-list-content');
+    
+      if (cashCheckbox.checked) {
+        cashLabel.innerHTML = '<input type="checkbox" checked disabled /> Cash';
+      } else {
+        cashLabel.innerHTML = '<input type="checkbox" disabled /> Cash';
+      }
+    
+      if (paypalCheckbox.checked) {
+        paypalLabel.innerHTML = '<input type="checkbox" checked disabled /> PayPal';
+      } else {
+        paypalLabel.innerHTML = '<input type="checkbox" disabled /> PayPal';
+      }
+    }
+
 
     // remove button
     const buttonsParent = document.querySelector(".page .signature p");
@@ -243,7 +258,9 @@ function UserAgreement() {
         alert("Failed to send email: " + error.message);
       }
 
-      navigate("/customer/booked/service");
+      navigate("/customer/booked/service", {
+        state: { successMessage: "Contract email has been sent to your email." },
+      });
     } else if (paymentMethod === "Paypal") {
       try {
         const response = await fetch("/api/purchase/pay", {
@@ -372,7 +389,7 @@ function UserAgreement() {
             <p className="section-header">Contract Details</p>
             <ul className="agreement-unordered-list">
               <li className="ul-list-content">
-                Responsible Staff: {contract.StaffName}
+                Responsible Staff: {contract.Staff?.name}
               </li>
               <li className="ul-list-content">
                 Total Estimated Price: ${contract.totalPrice}
@@ -387,7 +404,7 @@ function UserAgreement() {
             <ul className="agreement-unordered-list">
               <li className="ul-list-content">
                 <input
-                  type="checkbox"
+                  type="checkbox" name="paymentMethod" value="Cash"
                   checked={paymentMethod === "Cash"}
                   onChange={() => setPaymentMethod("Cash")}
                 />{" "}
@@ -395,7 +412,7 @@ function UserAgreement() {
               </li>
               <li className="ul-list-content">
                 <input
-                  type="checkbox"
+                  type="checkbox" name="paymentMethod" value="Paypal"
                   checked={paymentMethod === "Paypal"}
                   onChange={() => setPaymentMethod("Paypal")}
                 />{" "}

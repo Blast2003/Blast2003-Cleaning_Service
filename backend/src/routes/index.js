@@ -18,3 +18,4 @@ export const router = (app) =>{
     app.use("/api/purchase", purchaseRouter)
     app.use("/api/mail", mailRouter)
 }
+

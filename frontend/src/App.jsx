@@ -84,7 +84,8 @@ function App() {
         <Route path='/ourTeam' element={<OurTeamPage/>}/>
         <Route path='/service' element={<ServicePage/>}/>
         <Route path='/customerApprociate' element={<ApprociatePage/>}/>
-        <Route path='/staffDetails' element={<DetailStaffPage/>}/>
+        <Route path='/staffDetails/:staffName' element={<DetailStaffPage/>}/>
+        <Route path='/customer/staffDetails/:staffName' element={<DetailStaffPage/>}/>
 
 
         {/* Service + Task Detail in each service (Default)*/}
@@ -106,7 +107,7 @@ function App() {
         <Route path="/customer/ourTeam" element={customer ? <OurTeamPage/> : <Navigate to={"/ourTeam"}/>} />
         <Route path="/customer/customerApprociate" element={customer ? <ApprociatePage/> : <Navigate to={"/customerApprociate"}/>} />
         <Route path='/customer/service' element={customer ? <ServicePage/> : <Navigate to={"/service"}/>}/>
-        <Route path='/customer/staffDetails' element={ customer ? <DetailStaffPage/> : <Navigate to={"/staffDetails"}/>}/>
+        <Route path='/customer/staffDetails' element={ customer ? <Navigate to={"/customer/staffDetails/:staffName"}/> : <Navigate to={"/staffDetails/:staffName"}/>}/>
         <Route path='/customer/updateProfile' element={ customer ? <UpdateProfile/> : <Navigate to={"/"}/>}/>
         <Route path='/customer/booking' element={ customer ? <Booking/> : <Navigate to={"/"}/>}/>
         <Route path='/customer/userAgreement' element={ customer ? <UserAgreementPage/> : <Navigate to={"/"}/>}/>

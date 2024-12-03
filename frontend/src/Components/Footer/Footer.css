@@ -1,72 +1,177 @@
-.footer{
+.footer {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #1B1850;
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: large;
+    padding: 20px 0;
 }
-.footer-container{
+
+.footer-container {
     display: flex;
-    gap: 100px;
+    justify-content: space-between;
+    gap: 30px;
     cursor: pointer;
-    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
 }
-.footer-text{
+
+.footer-text {
     word-wrap: break-word;
     color: #fff;
 }
-.footer-section-2{
-    margin-top: 5px
-}
-.footer-section-3{
+
+.footer-section-2,
+.footer-section-4 {
     margin-top: 5px;
 }
-.footer-section-4{
-    color: #fff;
-}
-.social-icon{
-    width: 140px;
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-.footer-logo{
+
+.footer-logo {
     margin-right: 255px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
-.footer-table{
-    color: #fff;
+
+.footer-logo:hover {
+    color: #ff6f61; /* Changes color on hover */
 }
-.footer-bottom{
-    margin-bottom: 1px;
+
+
+
+.footer-bottom {
     display: flex;
     justify-content: space-between;
     margin-left: 50px;
     margin-right: 60px;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #999;
+    font-size: 14px;
 }
-.footer-table td{
-    text-decoration: none;
-    color: #fff
-}
-a{
+
+
+
+a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffecb3;
+}
+
+.social-icon {
+    width: 50px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
 }
 
 .booked-services-forward {
     text-align: center;
-    border-style: solid;
-    border-width: 3px;
+    border: 3px solid #ff6f61;
     border-radius: 27px;
     width: 300px;
-    height:35px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 5px;
-    padding-right: 5px;
-
-    color:#1B1850;
+    height: 40px;
+    line-height: 40px;
+    color: #1B1850;
     background-color: rgb(225, 192, 203);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.booked-services-forward:hover {
+    background-color: rgba(255, 105, 135, 0.9);
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+/* Hover effects for footer sections */
+.footer-section-2:hover,
+.footer-section-3:hover,
+.footer-section-4:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.footer-section-3 {
+    background-color: #1B1850;
+    padding: 20px 30px;
+    border-radius: 15px;
+    
+    margin-top: 20px;
+}
+
+.footer-heading {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 15px;
     text-align: center;
-    justify-content: center;
-    font-weight: bolder;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+.service-link {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.service-link:hover {
+    background-color: rgba(255, 105, 135, 0.3);
+    color: #ffecb3;
+    transform: translateX(5px);
+}
+
+.service-link:active {
+    background-color: rgba(255, 105, 135, 0.5);
+    color: #fff;
+    transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+    .footer-section-3 {
+        padding: 15px 20px;
+    }
+
+    .footer-heading {
+        font-size: 20px;
+    }
+
+    .service-link {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
 }
