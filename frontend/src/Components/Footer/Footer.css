@@ -55,14 +55,27 @@ a{
 .booked-services-forward {
     position: absolute;
     border-style: solid;
-    border-width: 3px;
-    border-radius: 20px;
-    height: 29px;
-    padding: 0px 20px 0 20px;
+    border-width: 5px;
+    border-radius: 25px;
+    height: 40px;
+    padding: 20px 25px;
     margin-left: 85%;
-    color:#1B1850;
-    background-color: rgb(225, 192, 203);
+    color: #1B1850;
+    background-color: #e1c0cb;
     text-align: center;
+    font-weight: bold;
+    font-size: 14px; 
+    line-height: 40px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    font-weight: bolder;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.booked-services-forward:hover {
+    background-color: #1B1850;
+    color: pink;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }

@@ -1,24 +1,25 @@
 import React from "react";
 import './Top.css'
 import { Link } from "react-router-dom";
+import topImg from '../../assets/top.png'
 
 const Top = () => {
     return(
         <div className="top">
             <div className="leftSection">
-                <h5>✨BERESIN - CLEANING SERVICES</h5>
-                <h2 className="test">Cleaning Services <br/> For All Your Needs</h2>
-                <p className="description">Faucibus commodo a aenean et sit quisque ipsum. <br/> Consequat
-                    eu id ut dolor felis quis. Sagittis a sapien <br/> pulvinar etiam 
-                    senetus adipiscing tempor diam tellus.
-                </p>
+                <div className="top-description">
+                    <h5 className="content-1">✨BERESIN - CLEANING SERVICES</h5>
+                    <h2 className="content-1">Cleaning Services All Your Needs</h2>
+                    <p className="content-1">Looking for a spotless home or office? Our professional cleaning team is here to help! Whether it's regular cleaning, deep cleaning, or special events, we’ve got you covered. Fast, reliable, and thorough – we handle it all. Contact us today for a cleaner, fresher space!</p>
+                </div>
+                
                 <div className="top-button">
                     <button className="getStart"><a href="/signup">Get Started</a></button>
                     <button className="howItWork"><a href="/customer/booking">Book Now</a></button>
                 </div>   
             </div>
 
-            <img src="http://surl.li/ohuhqi" alt="" className="image-1" ></img>
+            <img src={topImg} alt="" className="image-1" ></img>
 
             <div className="rightSection">
                 <div className="stat">

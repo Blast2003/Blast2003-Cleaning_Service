@@ -1,7 +1,7 @@
 .about-us-container{
     margin-left: 50px;
-    margin-bottom: 136px;
-    margin-top: 100px;
+    margin-bottom: 123px;
+    margin-top: 80px;
     font-size: larger;
 }
 .about-us-content{
@@ -9,19 +9,54 @@
     display: flex;
     gap: 120px;
 }
-.about-us-left-content{
-    margin-left: 120px;
+.about-us-left-content {
+    margin-left: 30px;
+    animation: fadeIn 1s ease-out; /* Smooth fade-in effect */
 }
-.AboutUS{
-    margin-left: 230px;
-}
-.about-us-heading{
+
+.AboutUS {
+    color: #CC33CC;
+    font-size: 1.5rem;
     text-transform: uppercase;
-    margin-right: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 1px; /* Slight spacing between letters for style */
+    font-weight: bold;
 }
-.about-us-description{
-    margin: 0 0 0 50px;
+
+.about-us-heading {
+    font-size: 2.8rem; /* Larger font for the main heading */
+    font-weight: 600;
+    color: #333;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px; /* Slight spacing to make the text stand out */
 }
+
+.about-us-description {
+    color: #555;
+    font-size: 1.1rem; /* Slightly larger font for readability */
+    line-height: 1.8; /* More space between lines for easier reading */
+    margin-bottom: 30px;
+    text-align: justify; /* Align the text for a clean look */
+    transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.about-us-description:hover {
+    color: #333; /* Darken the text color on hover for emphasis */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* Smooth fade-in animation for the entire content */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 .star-about-us{
     text-transform: uppercase;
     color: #CC33CC;

@@ -7,9 +7,7 @@ function About(){
             <div className="about-us-content">
                 <div className="about-us-left-content">
                     <h5 className="AboutUS">✨About Us</h5>
-                    <h2 className="about-us-heading">
-                    Clean Home with Our Professional Cleaning Services
-                    </h2>      
+                    <p className="about-us-description">Experience a spotless home with our expert cleaning services! Our professional team is dedicated to delivering thorough, efficient, and reliable cleaning solutions tailored to your needs. Whether it's regular upkeep, deep cleaning, or special requests, we ensure every corner shines. Enjoy a fresh, healthy, and sparkling clean home—contact us today!</p>      
                 </div>
                 <div className="about-us-right-content">
                     <table className="skill">

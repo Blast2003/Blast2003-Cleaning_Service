@@ -1,47 +1,71 @@
-
-.container {
-    font-family: Arial, sans-serif;
-    margin: 13px;
+/* Scoped styles for the OurTeam component */
+.our-team-container {
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 15px;
 }
 
-.member-list-header {
+.our-team-member-list-header {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
+    color: #4b4b4b;
+    font-size: 2rem;
+    margin-bottom: 30px;
 }
 
-.our-staff {
-    color: gray;
-    font-size: large;
+.our-team-our-staff {
+    color: #888;
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
 
-.meet-staff {
-    color: darkblue;
+.our-team-meet-staff {
+    color: #1f3c68;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
 }
 
-.cleaning-staff {
-    text-align: center;
-    margin-left: 10%;
-}
-
-.staff-members {
+.our-team-staff-members {
     display: flex;
-    gap: 15px;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
 }
 
-.staff-member {
+.our-team-staff-member {
     text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
 }
 
-.member-description {
+.our-team-staff-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.our-team-member-description {
     text-align: center;
     padding-top: 20px;
-    height: 100px;
+    height: 120px;
+    color: #555;
+    font-size: 0.9rem;
+    padding: 0 10px;
 }
 
-.member-image {
+.our-team-member-image {
     width: 250px;
     height: 250px;
-    border-radius: 8px;
+    border-radius: 12px;
+    border: 4px solid #f0f0f0;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-
+.our-team-member-image:hover {
+    transform: scale(1.1);
+}

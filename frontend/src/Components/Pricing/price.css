@@ -1,91 +1,131 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
+  background-color: #f5f5f5; /* Light, neutral background */
   color: #333;
   margin: 0;
   padding: 0;
 }
 
 .custom-pricing-table {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 1000px;
-  }
-  
-  .custom-pricing-table h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .custom-pricing-table p {
-    margin-bottom: 2rem;
-    color: #666;
-  }
-  
-  .custom-plans {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .custom-plan {
-    background-color: #f3f4ff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .custom-plan h3 {
-    font-size: 1.2rem;
-    color: #7c4dff;
-    margin-bottom: 10px;
-  }
-  
-  .custom-price {
-    font-size: 2rem;
-    margin: 10px 0;
-  }
-  
-  .custom-price span {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .custom-plan .custom-plan-ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-  }
-  
-  .custom-plan .custom-plan-ul .custom-plan-li {
-    margin-bottom: 10px;
-  }
-  
-.pay-button {
-    background-color: #e1bee7;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-.pay-button:hover {
-  background-color: #e91e63;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1400px; /* Increased max-width */
+  padding: 40px 20px;
 }
 
-/* Align pay buttons on the same line */
-.custom-plans .custom-plan {
+.custom-pricing-table h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50; /* Dark text for heading */
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.custom-pricing-table p {
+  margin-bottom: 2rem;
+  color: #7f8c8d; /* Soft grey for descriptions */
+  font-size: 1.1rem;
+}
+
+.custom-plans {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.custom-plan {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 350px; /* Increased width of each plan */
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-plan:hover {
+  transform: translateY(-15px); /* More pronounced hover effect */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Increased shadow effect */
+}
+
+.custom-plan h3 {
+  font-size: 1.5rem;
+  color: #34495e; /* Dark blue-gray */
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.custom-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1abc9c; /* Stylish teal color for price */
+  margin: 15px 0;
+}
+
+.custom-price span {
+  font-size: 1.1rem;
+  color: #95a5a6; /* Light grey for /service */
+}
+
+.custom-plan .custom-plan-ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.custom-plan .custom-plan-ul .custom-plan-li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+}
+
+.custom-plan .custom-plan-ul .custom-plan-li::before {
+  content: "✔️";
+  margin-right: 8px;
+  color: #1abc9c; /* Consistent with price color */
+}
+
+.pay-button {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.pay-button:hover {
+  background-color: #16a085; /* Slightly darker shade of teal */
+  transform: scale(1.05);
+}
+
+.pay-button:focus {
+  outline: none;
 }
 
 .custom-plan .pay-button-container {
-  margin-top: 15px;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .custom-plans {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .custom-plan {
+    width: 100%;
+    max-width: 400px; /* Adjust the max-width for smaller screens */
+  }
 }

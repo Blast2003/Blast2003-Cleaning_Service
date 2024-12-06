@@ -1,7 +1,62 @@
-.feature-container{
+.feature-container {
     display: flex;
-    gap: 100px;
+    gap: 50px;
     align-items: center;
     justify-content: center;
-    background-color: #EFF3FF;
+    background-color: #ffffff; /* Soft blue background */
+    padding: 50px 20px; /* Add padding for spacing */
+}
+
+.feature-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px; /* Limiting the width for each section */
+    text-align: center; /* Center the text */
+    background-color: #ffffff; /* White background for each feature */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners for each section */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effects */
+}
+
+.feature-section:hover {
+    transform: translateY(-10px); /* Slight upward hover effect */
+}
+
+.iconFeature {
+    height: 60px; /* Increase icon size */
+    width: 60px; /* Ensure icons are square */
+    margin-bottom: 20px; /* Space between icon and text */
+    transition: transform 0.3s ease-in-out;
+}
+
+.iconFeature:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.feature-heading {
+    font-size: 1.6rem; /* Slightly larger heading */
+    color: #3c3c3c; /* Darker text for better readability */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.feature-description {
+    font-size: 1.1rem; /* Adjusted font size for description */
+    color: #666; /* Softer color for description */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 0 10px; /* Add some padding for readability */
+}
+
+@media (max-width: 768px) {
+    .feature-container {
+        flex-direction: column; /* Stack feature sections on smaller screens */
+        gap: 40px; /* Reduce gap between sections */
+    }
+
+    .feature-section {
+        max-width: 100%; /* Full width for mobile */
+        padding: 20px; /* Reduce padding on mobile */
+    }
 }
