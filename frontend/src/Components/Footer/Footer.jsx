@@ -135,7 +135,7 @@ const Footer = () => {
                      📞+1 (333) 000-0000</p>
                 </div>
                 
-                {customer && contracts.length > 0 &&(<a href="/customer/booked/service" className="booked-services-forward">Booked Services</a>)}
+                {customer && contracts.length > 0 &&(<a href="/customer/booked/service" className="booked-services-forward" >Booked Services</a>)}
  
             </div>
             <div className="footer-bottom">

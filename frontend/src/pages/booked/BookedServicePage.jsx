@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 function BookedServicePage(){
     const location = useLocation();
-    const { successMessage } = location.state || new URLSearchParams(location.search).get('successMessage') || {};
+    const { successMessage } = location.state|| {};
     return(
         <div>
             <Navbar/>

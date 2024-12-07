@@ -1,46 +1,78 @@
-.middle-container{
+.middle-container {
     display: flex;
     align-items: center;
-    padding: 30px;
     justify-content: center;
-    gap: 100px;
+    padding: 30px;
+    gap: 50px; /* Reduced the gap for a more balanced look */
+    flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+    background-color: white;
 }
-.image-2{
+
+.image-2 {
     width: 350px;
-    height: 440px;
+    height: 540px;
     background-color: #d8aaf8;
     border-radius: 20px;
     margin: 20px;
     padding: 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease-in-out;
 }
-.content{
+
+.image-2:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.content {
     max-width: 500px;
+    text-align: left;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
-h4{
-    margin-top: 10px;
+
+h4 {
+    margin-top: 0;
     color: #d97fd5;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
 }
-h1{
-    font-size: 36px;
+
+h1 {
+    font-size: 2.2rem; /* Adjusted to make it more elegant */
     color: #333;
     margin-bottom: 20px;
+    font-weight: bold;
 }
-p{
+
+p {
     color: #666;
     margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: center;
 }
-.highlight{
+
+.highlight {
     color: #d97fd5;
     font-weight: bold;
 }
-.heading-2{
-    font-size: 20px;
+
+.heading-2 {
+    font-size: 1.2rem; /* Slightly smaller to maintain hierarchy */
     color: #333;
-    margin: 0 0 5px 0;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
-.description-2{
+
+.description-2 {
     margin-left: 27px;
     color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
 }

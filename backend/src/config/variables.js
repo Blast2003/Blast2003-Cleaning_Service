@@ -12,4 +12,5 @@ export const Variables = {
     BASE_URL: process.env.BASE_URL,
     EMAIL: process.env.EMAIL,
     EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
 }

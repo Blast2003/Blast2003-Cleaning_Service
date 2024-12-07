@@ -131,15 +131,21 @@ function CustomerBookedServiceList({successMessage}) {
 
     useEffect(() => {
         fetchContractsAndServices();
-        localStorage.removeItem("contract-cleanings")
-        setContract(null); 
+        localStorage.removeItem("contract-cleanings");
+        setContract(null);
+    
+        const hasSeenMessage = sessionStorage.getItem("hasSeenSuccessMessage");
 
-        if (successMessage) {
-            setShowMessage(true);
-            const timer = setTimeout(() => setShowMessage(false), 5000); 
-            return () => clearTimeout(timer); 
-          }
+    if (hasSeenMessage === "true" && successMessage) {
+        setShowMessage(true);   
+        // Optionally, hide the message after 5 seconds
+        const timer = setTimeout(() => {
+            setShowMessage(false);
+            sessionStorage.setItem("hasSeenSuccessMessage", "false");
+        }, 5000);
 
+        return () => clearTimeout(timer);
+    }
     }, [setContract, successMessage]);
 
     return (    

@@ -56,6 +56,7 @@ import logoutSuccessAtom from './atom/logoutSuccessAtom'
 import UpdateProfile from './pages/default/UpdateProfile'
 import UpdateProfileStaff from './pages/staff/UpdateProfile'
 import UpdateProfileExaminer from './pages/examiner/UpdateProfile'
+import SuccessPaymentPage from './pages/booked/SuccessPaymentPage'
 
 function App() {
 
@@ -128,6 +129,7 @@ function App() {
         <Route path='/customer/booked/service/wall' element={customer ? <BookedWall/> : <Navigate to={"/"}/>}/>
         <Route path='/customer/booked/service/furniture' element={customer ? <BookedFurniture/> : <Navigate to={"/"}/>}/>
         <Route path='/customer/booked/service' element={customer ? <BookedServicePage/> : <Navigate to={"/"}/>}/>
+        <Route path='/customer/booked/service/success' element={customer ? <SuccessPaymentPage/> : <Navigate to={"/"}/>}/>
         
 
 

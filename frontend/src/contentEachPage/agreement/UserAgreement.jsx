@@ -83,22 +83,22 @@ function UserAgreement() {
     }
 
     // Select the checkboxes
-    const cashCheckbox = document.querySelector(
-      '.agreement-unordered-list input[type="checkbox"][value="Cash"]'
+    const cardCheckbox = document.querySelector(
+      '.agreement-unordered-list input[type="checkbox"][value="Card"]'
     );
     const paypalCheckbox = document.querySelector(
       '.agreement-unordered-list input[type="checkbox"][value="Paypal"]'
     );
 
-    if (cashCheckbox && paypalCheckbox) {
+    if (cardCheckbox && paypalCheckbox) {
       // Modify the checkbox HTML based on checked state
-      const cashLabel = cashCheckbox.closest('.ul-list-content');
+      const cardLabel = cardCheckbox.closest('.ul-list-content');
       const paypalLabel = paypalCheckbox.closest('.ul-list-content');
     
-      if (cashCheckbox.checked) {
-        cashLabel.innerHTML = '<input type="checkbox" checked disabled /> Cash';
+      if (cardCheckbox.checked) {
+        cardLabel.innerHTML = '<input type="checkbox" checked disabled /> Card';
       } else {
-        cashLabel.innerHTML = '<input type="checkbox" disabled /> Cash';
+        cardLabel.innerHTML = '<input type="checkbox" disabled /> Card';
       }
     
       if (paypalCheckbox.checked) {
@@ -230,37 +230,70 @@ function UserAgreement() {
     `;
 
 
-    if (paymentMethod === "Cash") {
+    if (paymentMethod === "Card") {
       try {
-        const response = await fetch("/api/mail/create", {
+        // Step 1: Call the /api/purchase/card endpoint to create a payment session
+        const paymentResponse = await fetch("/api/purchase/card", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            User: {
-              email: customer.email,
+            contract: {
+              ServiceName: contract.ServiceName,
+              totalPrice: contract.totalPrice,
             },
-            Examiner: {
-              email: examiner.email,
-            },
-            emailContent,
           }),
         });
     
-        const data = await response.json();
+        const paymentData = await paymentResponse.json();
     
-        if (!response.ok) {
-          console.log("Failed to send email")
-          throw new Error(data.error || "Failed to send email.");
+        if (!paymentResponse.ok) {
+          console.log("Failed to create payment session");
+          throw new Error(paymentData.message || "Payment session creation failed.");
         }
-        console.log("Email sent successfully!", data);
+    
+        console.log("Payment session created:", paymentData);
         
-      } catch (error) {
-        alert("Failed to send email: " + error.message);
+        if (paymentData.url) {
+        // Redirect user to the Stripe checkout page
+        window.location.href = paymentData.url;
+
+        try {
+          const emailResponse = await fetch("/api/mail/create", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              User: {
+                email: customer.email,
+              },
+              Examiner: {
+                email: examiner.email,
+              },
+              emailContent,
+            }),
+          });
+      
+          const emailData = await emailResponse.json();
+      
+          if (!emailResponse.ok) {
+            console.log("Failed to send email");
+            throw new Error(emailData.error || "Failed to send email.");
+          }
+      
+          console.log("Email sent successfully!", emailData);
+      
+        } catch (error) {
+          alert("Failed to send email: " + error.message);
+        }
+      } 
+      else{
+        alert("Error starting Stripe payment: " + paymentData.message);
       }
 
-      navigate("/customer/booked/service", {
-        state: { successMessage: "Contract email has been sent to your email." },
-      });
+      } catch (error) {
+        alert("Payment error: " + error.message);
+        return;
+      }
+
     } else if (paymentMethod === "Paypal") {
       try {
         const response = await fetch("/api/purchase/pay", {
@@ -300,7 +333,6 @@ function UserAgreement() {
             alert("Failed to send email: " + error.message);
           }
         
-
         } else {
           alert("Error starting PayPal payment: " + data.message);
         }
@@ -404,11 +436,11 @@ function UserAgreement() {
             <ul className="agreement-unordered-list">
               <li className="ul-list-content">
                 <input
-                  type="checkbox" name="paymentMethod" value="Cash"
-                  checked={paymentMethod === "Cash"}
-                  onChange={() => setPaymentMethod("Cash")}
+                  type="checkbox" name="paymentMethod" value="Card"
+                  checked={paymentMethod === "Card"}
+                  onChange={() => setPaymentMethod("Card")}
                 />{" "}
-                Cash
+                Card
               </li>
               <li className="ul-list-content">
                 <input
